@@ -1,0 +1,384 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    /* display: flex; */
+    /* flex-direction: column; */
+
+}
+
+nav {
+    padding: 15px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    font-size: 13px;
+}
+
+nav .left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #262626;
+}
+
+nav .right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ri-search-line,
+.ri-shopping-cart-2-line {
+    font-size: 15px;
+}
+
+.profile {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-image: url(./images/profile.jpeg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+section {
+    width: 100%;
+    align-self: center;
+    position: relative;
+}
+
+section img {
+    width: 100%;
+
+}
+
+.learn-more {
+    width: 38%;
+    padding: 36px 28px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 11%;
+    left: 5%;
+}
+
+.learn-more h2 {
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.learn-more p {
+    margin: 20px 0px;
+    /* line-height: 20px; */
+}
+
+.learn-more button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #0067B8;
+    border-radius: 2px;
+    color: white;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.box img {
+    width: 10%;
+}
+
+.container-3 {
+    width: 100%;
+    height: 20%;
+    /* background-color: #5e9dcd; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    margin: 50px 0px;
+}
+
+.container-3 .boxes {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-3 .boxes img {
+    width: 38px;
+}
+
+.container-3 .boxes a {
+    font-weight: 500;
+    color: #0067B8;
+}
+
+.container-4 {
+    width: 100%;
+    height: 73%;
+    /* background-color: darkkhaki; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 78px;
+    gap: 40px;
+}
+
+.container-4 .card {
+    width: 25%;
+    height: 86%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.350);
+}
+
+.container-4 .card .topimage img {
+    width: 100%;
+}
+
+.container-4 .card .lowercontent {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    /* background-color: red; */
+    padding: 20px;
+
+
+}
+
+.container-4 .lowercontent h2 {
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.container-4 .lowercontent p {
+    line-height: 24px;
+}
+
+.container-4 .lowercontent button {
+    width: fit-content;
+    padding: 12px 20px;
+    border: none;
+    background-color: #0067B8;
+    border-radius: 2px;
+    color: white;
+    font-weight: 600;
+
+}
+
+.container-5 {
+    height: 70%;
+    width: 90%;
+    background-image: url('https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-Hero-Windows11-GlobalLaunch:VP5-1596x600');
+    background-position: center;
+    background-size: cover;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 120px;
+    color: white;
+
+}
+
+.container-5 .content5 {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+
+
+
+
+}
+
+.container-5 .content5 h2 {
+    font-size: 36px;
+    line-height: 45px;
+    font-weight: 600;
+}
+
+.container-5 .content5 button {
+    width: fit-content;
+    padding: 13px 18px;
+    background-color: #0067B8;
+    font-weight: 500;
+    border: none;
+    font-size: 14px;
+    color: white;
+
+}
+
+.container-6 {
+    width: 90%;
+    height: 90%;
+    /* background-color: tomato; */
+    margin: 100px auto;
+
+}
+
+.container-6 h1 {
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.container-6 .business-container {
+    height: 90%;
+    width: 100%;
+    /* background-color: lightpink; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 37px;
+}
+
+.container-6 .business-container .cards {
+    height: 95%;
+    width: 23%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.227);
+
+}
+
+.imagecard img {
+    width: 100%;
+}
+
+.cardcontent {
+    padding: 10px 25px 25px;
+}
+
+.cardcontent .new {
+    width: fit-content;
+    padding: 6px 14px;
+    border: none;
+    background-color: #FFB900;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.cardcontent h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin: 8px 0px 15px;
+}
+
+.cardcontent button {
+    width: fit-content;
+    padding: 12px 19px;
+    border: none;
+    background-color: #0067B8;
+    color: white;
+    font-weight: 600;
+
+}
+
+.cardcontent p {
+    margin-bottom: 20px;
+}
+
+.container-7 {
+    height: 70%;
+    width: 90%;
+    background-image: url('https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Hero-Desktop-AI-Sustainability-Less-Plastic:VP5-1920x600');
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    position: relative;
+}
+
+.container-7 .content7 {
+    width: 32%;
+    height: 42%;
+    /* background-color: wheat; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: absolute;
+    bottom: 25%;
+    right: 8%;
+}
+
+.container-7 .content7 h2 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.container-7 .content7 button {
+    width: fit-content;
+    padding: 12px 17px;
+    border: none;
+    background-color: #0067B8;
+    color: white;
+    font-weight: 600;
+}
+
+.socials {
+    height: 16%;
+    width: 90%;
+    /* background-color: #FFB900; */
+    display: flex;
+    /* justify-content: center; */
+    margin: auto;
+    align-items: center;
+    gap: 30px;
+}
+
+.socials a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #202020;
+}
+
+footer {
+    height: 50%;
+    width: 100%;
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+footer .wrapfooter {
+    display: flex;
+    gap: 100px;
+}
+
+footer .footerbox {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+footer .footerbox h4 {
+    font-weight: 500;
+    color: #616161;
+}  
+
+footer .footerbox a {
+    text-decoration: none;
+    color: #616161;
+    font-size: 12px;
+}
