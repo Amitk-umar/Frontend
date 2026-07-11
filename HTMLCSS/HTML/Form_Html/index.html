@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html Form</title>
+  </head>
+  <body>
+    <form action="" style="font-family: sans-serif">
+      <h1>Student Registration Form</h1>
+
+      <fieldset>
+        <legend style="font-weight: bold">Personal Details</legend>
+
+        <label for="name">Full Name </label>
+        <input id="name" type="text" /><br /><br />
+
+        <label for="dob">Date of Birth </label>
+        <input id="dob" type="date" /><br /><br />
+
+        <label for="gender">Gender </label><br />
+        <label for="male">Male</label>
+        <input id="male" type="radio" />
+        <label for="female">Female</label>
+        <input id="female" type="radio" />
+        <label for="others">others</label>
+        <input id="others" type="radio" />
+      </fieldset>
+      <br /><br />
+
+      <fieldset>
+        <legend style="font-weight: bold">Contact Information</legend>
+        <label for="email">email address</label>
+        <input type="email" /><br /><br />
+        <label for="tel">Mobile Number</label>
+        <input type="tel" /><br /><br />
+        <label for="mailadd">Mailing Address</label>
+        <textarea id="mailadd" cols="50" rows="6"></textarea>
+      </fieldset>
+      <br /><br />
+
+      <fieldset>
+        <legend style="font-weight: bold">Academic Details & Documents</legend>
+        <label for="course">Chosen course</label>
+
+        <select id="course">
+          <option>Computer Science</option>
+          <option>Business</option>
+          <option>Arts</option>
+          <option>Engineering</option></select
+        ><br /><br />
+
+        <label for="profile">Profile Picture</label>
+        <input id="profile" type="file" /><br /><br />
+      </fieldset>
+
+      <input id="terms" type="checkbox" />
+      <label for="terms">Accept terms and condition</label><br /><br />
+      <button type="submit">Submit</button><br /><br />
+      <hr />
+
+      <!-- Some other tags  -->
+
+      <!-- This tags is used for like FAQ dropdown -->
+       <h3 contenteditable="true">FAQ about FIFA World cup 2026?</h3>
+      <details>
+        <summary draggable="true">
+          1. When and where is the FIFA World Cup 2026™ being held?
+        </summary>
+        <p>
+          The FIFA World Cup 2026™ will take place from 11 June to 19 July 2026,
+          spanning 16 host cities in Canada, Mexico and the United States. In 34
+          days, 104 matches will be played across North America. For the first
+          time, the tournament will feature 48 teams and be jointly hosted by
+          three nations. The host cities for the FIFA World Cup 2026™ grouped by
+          country are as follows: Canada: Toronto and Vancouver Mexico:
+          Guadalajara, Mexico City and Monterrey United States: Atlanta, Boston,
+          Dallas, Houston, Kansas City, Los Angeles, Miami, New York New Jersey,
+          Philadelphia, San Francisco Bay Area and Seattle
+
+          <a
+            href="https://digitalhub.fifa.com/m/1be9ce37eb98fcc5/original/FWC26-Match-Schedule_English.pdf"
+            target="_blank"
+            >Click here</a
+          >
+          for more information regarding the FIFA World Cup 2026™ match
+          schedule. For details about host cities and countries,
+          <a
+            href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/host-cities"
+            target="_blank"
+            >Click here</a
+          >
+          . Please note that the information and specifications provided on this
+          FAQ portal are subject to change without prior notice due to factors
+          such as policy updates, operational changes, or new regulatory
+          requirements.
+        </p>
+      </details>
+
+      <details>
+        <summary draggable="true">
+          2. Where can I find more information about each stadium to help me
+          prepare for FIFA World Cup 2026™ matchdays?
+        </summary>
+        <p>
+          Visit
+          <a
+            href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/stadiums"
+            target="_blank"
+            >this page</a
+          >
+          and select the stadium to access more details to help you prepare for
+          your FIFA World Cup 2026™ match, including Know Before You Go
+          information, fan safety, stadium services, and more.
+        </p>
+      </details>
+    </form>
+  </body>
+</html>
