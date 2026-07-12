@@ -7,98 +7,119 @@
 body,
 html {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-main {
-    height: 100%;
-    width: 100%;
-    /* display: flex; */
-    /* flex-direction: column; */
+body {
+    overflow-x: hidden;
+    color: #1a1a1a;
+}
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
 }
 
 nav {
-    padding: 15px 100px;
+    min-height: 3.75rem;
+    padding: 0.9rem clamp(1rem, 5vw, 6.25rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.25rem;
     background-color: rgb(255, 255, 255);
-    font-size: 13px;
+    font-size: 0.8125rem;
 }
 
-nav .left {
+nav .left,
+nav .right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: clamp(0.75rem, 1.8vw, 1.25rem);
+    flex-wrap: wrap;
+}
+
+nav .left img {
+    width: 7.5rem;
+    height: auto;
 }
 
 nav a {
     text-decoration: none;
     color: #262626;
-}
-
-nav .right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    white-space: nowrap;
 }
 
 .ri-search-line,
 .ri-shopping-cart-2-line {
-    font-size: 15px;
+    font-size: 0.9375rem;
 }
 
 .profile {
-    height: 30px;
-    width: 30px;
+    height: 1.875rem;
+    width: 1.875rem;
     border-radius: 50%;
     background-image: url(./images/profile.jpeg);
     background-size: cover;
     background-position: center;
-
 }
 
 section {
     width: 100%;
-    align-self: center;
+    min-height: clamp(22rem, 42vw, 37.5rem);
     position: relative;
+    overflow: hidden;
 }
 
 section img {
     width: 100%;
-
+    height: 100%;
+    object-fit: cover;
 }
 
 .learn-more {
-    width: 38%;
-    padding: 36px 28px;
+    width: min(38rem, 38%);
+    padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.25rem, 2vw, 1.75rem);
     background-color: rgb(255, 255, 255);
     position: absolute;
-    top: 11%;
-    left: 5%;
+    top: clamp(2rem, 8vw, 4rem);
+    left: clamp(1rem, 5vw, 4.5rem);
 }
 
 .learn-more h2 {
-    margin-top: 10px;
-    font-size: 40px;
+    margin-top: 0.625rem;
+    font-size: clamp(2rem, 3vw, 2.5rem);
     font-weight: 500;
 }
 
 .learn-more p {
-    margin: 20px 0px;
-    /* line-height: 20px; */
+    margin: 1.25rem 0;
+    line-height: 1.45;
 }
 
-.learn-more button {
-    padding: 12px 20px;
+.learn-more button,
+.container-4 .lowercontent button,
+.container-5 .content5 button,
+.cardcontent button,
+.container-7 .content7 button {
+    width: fit-content;
+    padding: 0.75rem 1.25rem;
     border: none;
     background-color: #0067B8;
-    border-radius: 2px;
+    border-radius: 0.125rem;
     color: white;
     font-weight: 600;
-    margin-top: 10px;
 }
 
 .box img {
@@ -107,23 +128,26 @@ section img {
 
 .container-3 {
     width: 100%;
-    height: 20%;
-    /* background-color: #5e9dcd; */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 42px;
-    margin: 50px 0px;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 4vw, 2.625rem);
+    margin: clamp(2.25rem, 5vw, 3.125rem) 0;
+    padding: 0 1rem;
 }
 
 .container-3 .boxes {
+    min-width: 9rem;
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 0.35rem;
+    text-align: center;
 }
 
 .container-3 .boxes img {
-    width: 38px;
+    width: 2.375rem;
 }
 
 .container-3 .boxes a {
@@ -132,253 +156,355 @@ section img {
 }
 
 .container-4 {
-    width: 100%;
-    height: 73%;
-    /* background-color: darkkhaki; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 78px;
-    gap: 40px;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
 }
 
-.container-4 .card {
-    width: 25%;
-    height: 86%;
+.container-4 .card,
+.container-6 .business-container .cards {
+    min-width: 0;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.350);
+    box-shadow: 0 0.125rem 0.4375rem rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
 }
 
-.container-4 .card .topimage img {
+.container-4 .card .topimage img,
+.imagecard img {
     width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
 }
 
 .container-4 .card .lowercontent {
-    height: 60%;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-    /* background-color: red; */
-    padding: 20px;
-
-
+    gap: 1.25rem;
+    padding: 1.25rem;
 }
 
 .container-4 .lowercontent h2 {
     font-weight: 500;
-    font-size: 28px;
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
 }
 
 .container-4 .lowercontent p {
-    line-height: 24px;
+    line-height: 1.5;
 }
 
-.container-4 .lowercontent button {
-    width: fit-content;
-    padding: 12px 20px;
-    border: none;
-    background-color: #0067B8;
-    border-radius: 2px;
-    color: white;
-    font-weight: 600;
-
+.container-4 .lowercontent button,
+.cardcontent button {
+    margin-top: auto;
 }
 
 .container-5 {
-    height: 70%;
+    min-height: clamp(23rem, 40vw, 37.5rem);
     width: 90%;
     background-image: url('https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-Hero-Windows11-GlobalLaunch:VP5-1596x600');
     background-position: center;
     background-size: cover;
-    margin: 50px auto;
+    margin: clamp(3.125rem, 6vw, 5rem) auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 120px;
+    padding-left: clamp(2rem, 8vw, 7.5rem);
+    padding-right: 2rem;
     color: white;
-
 }
 
 .container-5 .content5 {
-    width: 35%;
+    width: min(35rem, 42%);
     display: flex;
     flex-direction: column;
-    gap: 25px;
-
-
-
-
-
+    gap: 1.5625rem;
 }
 
 .container-5 .content5 h2 {
-    font-size: 36px;
-    line-height: 45px;
+    font-size: clamp(1.8rem, 3vw, 2.25rem);
+    line-height: 1.25;
     font-weight: 600;
 }
 
 .container-5 .content5 button {
-    width: fit-content;
-    padding: 13px 18px;
-    background-color: #0067B8;
-    font-weight: 500;
-    border: none;
-    font-size: 14px;
-    color: white;
-
+    font-size: 0.875rem;
 }
 
 .container-6 {
     width: 90%;
-    height: 90%;
-    /* background-color: tomato; */
-    margin: 100px auto;
-
+    margin: clamp(4rem, 8vw, 6.25rem) auto;
 }
 
 .container-6 h1 {
-    font-size: 38px;
+    font-size: clamp(2rem, 3vw, 2.375rem);
     font-weight: 500;
 }
 
 .container-6 .business-container {
-    height: 90%;
     width: 100%;
-    /* background-color: lightpink; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 37px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: clamp(1.25rem, 3vw, 2.3125rem);
+    margin-top: 1.25rem;
 }
 
 .container-6 .business-container .cards {
-    height: 95%;
-    width: 23%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.227);
-
-}
-
-.imagecard img {
-    width: 100%;
+    box-shadow: 0.125rem 0.25rem 0.5rem rgba(0, 0, 0, 0.227);
 }
 
 .cardcontent {
-    padding: 10px 25px 25px;
+    flex: 1;
+    padding: 0.625rem clamp(1rem, 2vw, 1.5625rem) 1.5625rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .cardcontent .new {
     width: fit-content;
-    padding: 6px 14px;
+    padding: 0.375rem 0.875rem;
     border: none;
     background-color: #FFB900;
+    color: #000;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .cardcontent h2 {
-    font-size: 30px;
+    font-size: clamp(1.5rem, 2.3vw, 1.875rem);
     font-weight: 500;
-    margin: 8px 0px 15px;
-}
-
-.cardcontent button {
-    width: fit-content;
-    padding: 12px 19px;
-    border: none;
-    background-color: #0067B8;
-    color: white;
-    font-weight: 600;
-
+    margin: 0.5rem 0 0.9375rem;
 }
 
 .cardcontent p {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+    line-height: 1.45;
 }
 
 .container-7 {
-    height: 70%;
+    min-height: clamp(23rem, 40vw, 37.5rem);
     width: 90%;
     background-image: url('https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Hero-Desktop-AI-Sustainability-Less-Plastic:VP5-1920x600');
     background-position: center;
     background-size: cover;
     margin: auto;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: clamp(2rem, 8vw, 5rem);
 }
 
 .container-7 .content7 {
-    width: 32%;
-    height: 42%;
-    /* background-color: wheat; */
+    width: min(32rem, 40%);
     color: white;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    position: absolute;
-    bottom: 25%;
-    right: 8%;
+    gap: 1.5625rem;
 }
 
 .container-7 .content7 h2 {
-    font-size: 36px;
-    font-weight: 600;
-}
-
-.container-7 .content7 button {
-    width: fit-content;
-    padding: 12px 17px;
-    border: none;
-    background-color: #0067B8;
-    color: white;
+    font-size: clamp(1.8rem, 3vw, 2.25rem);
     font-weight: 600;
 }
 
 .socials {
-    height: 16%;
+    min-height: 7rem;
     width: 90%;
-    /* background-color: #FFB900; */
     display: flex;
-    /* justify-content: center; */
     margin: auto;
     align-items: center;
-    gap: 30px;
+    gap: 1.875rem;
+    flex-wrap: wrap;
 }
 
 .socials a {
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.5625rem;
     color: #202020;
 }
 
 footer {
-    height: 50%;
     width: 100%;
     background-color: #F2F2F2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    padding: clamp(2rem, 4vw, 3rem) 0;
 }
 
 footer .wrapfooter {
-    display: flex;
-    gap: 100px;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 6.25rem);
 }
 
 footer .footerbox {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 1.125rem;
 }
 
 footer .footerbox h4 {
     font-weight: 500;
     color: #616161;
-}  
+}
 
 footer .footerbox a {
     text-decoration: none;
     color: #616161;
-    font-size: 12px;
+    font-size: 0.75rem;
+}
+
+@media (max-width: 75rem) {
+    .container-4,
+    .container-6 .business-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .learn-more {
+        width: min(30rem, 45%);
+    }
+
+    .container-5 .content5,
+    .container-7 .content7 {
+        width: min(32rem, 55%);
+    }
+
+    footer .wrapfooter {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 56.25rem) {
+    nav {
+        align-items: flex-start;
+    }
+
+    nav .left {
+        flex: 1 1 100%;
+    }
+
+    nav .right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    section {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    section img {
+        height: clamp(18rem, 52vw, 26rem);
+    }
+
+    .learn-more {
+        width: min(30rem, calc(100% - 2rem));
+        top: 1.5rem;
+        left: 1rem;
+        padding: clamp(1.25rem, 4vw, 2rem);
+    }
+
+    .learn-more p br {
+        display: none;
+    }
+
+    .container-5,
+    .container-7 {
+        min-height: 32rem;
+    }
+
+    .container-5 .content5,
+    .container-7 .content7 {
+        width: min(32rem, 72%);
+    }
+}
+
+@media (max-width: 43.75rem) {
+    nav {
+        padding: 0.75rem 1rem;
+    }
+
+    nav .left,
+    nav .right {
+        gap: 0.625rem 0.875rem;
+    }
+
+    nav .left img {
+        width: 6.75rem;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+    }
+
+    .container-3 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(8rem, 1fr));
+        justify-items: center;
+    }
+
+    .container-4,
+    .container-6 .business-container {
+        grid-template-columns: 1fr;
+    }
+
+    .container-5,
+    .container-7 {
+        width: calc(100% - 2rem);
+        min-height: 31rem;
+        padding: 2rem 1.25rem;
+    }
+
+    .container-5 {
+        justify-content: flex-end;
+    }
+
+    .container-5 .content5,
+    .container-7 .content7 {
+        width: 100%;
+    }
+
+    .container-7 {
+        align-items: flex-end;
+        background-position: center left;
+    }
+
+    footer .wrapfooter {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 30rem) {
+    section img {
+        height: 22rem;
+    }
+
+    .learn-more {
+        padding: 1.5rem 1rem;
+    }
+
+    .container-3 {
+        grid-template-columns: 1fr;
+        margin: 2rem 0;
+    }
+
+    .container-4,
+    .container-6,
+    .socials {
+        width: calc(100% - 2rem);
+    }
+
+    .container-4 .card .lowercontent,
+    .cardcontent {
+        padding: 1rem;
+    }
+
+    footer .wrapfooter {
+        grid-template-columns: 1fr;
+    }
 }
