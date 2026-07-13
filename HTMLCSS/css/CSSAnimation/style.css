@@ -59,7 +59,7 @@ html {
 .parent {
   background-color: crimson;
   display: flex;
-  animation: brand 10s linear 0.0ms infinite;  
+  animation: brand 12s linear infinite;  
 
 }
 .parent:hover{
