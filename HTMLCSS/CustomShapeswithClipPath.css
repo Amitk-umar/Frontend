@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+.card {
+
+    height: 300px;
+    width: 260px;
+    background-color: #47c8ff;
+    /* Syntax : Clip-path :circle(radius at cx cy) */
+    /* clip-path: circle(30% at top left); */
+
+
+    /* syntax : clip-path: ellipse(rx ry at cx cy); */
+    /* clip-path: ellipse(50% 30% at 50% 50%); */
+
+
+
+    /* crops an element from the inside by cutting off 20px from the top, right, and left, 50px from the bottom, and rounds the corners of the cropped shape by 10px. */
+    /* clip-path: inset(20px 20px 30px 20px round 20px 0);    */
+
+
+    /* ------polygon shape-------- */
+    /* clip-path: polygon(0% 15%, 35% 15%, 35% 0, 100% 0, 100% 14%, 100% 85%, 100% 100%, 85% 100%, 15% 100%, 0 100%, 0% 85%); */
+
+
+    clip-path: path("M 10,40 L 70,40 A 1,1 1,1,0 80,30 L 80,10 A 10,10 0,0,1 90,0 L 140,0 A 10,10 0,0,1 150,10 L 150,190 A 10,10 0,0,1 140,200 L 10,200 A 10,10 0,0,1 0,190 L 0,50 A 10,10 0,0,1 10,40 Z");
+}
