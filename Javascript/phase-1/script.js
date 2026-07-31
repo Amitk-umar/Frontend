@@ -104,24 +104,154 @@
 
 
 
-// -------------Question------------
-var gender = prompt('Male or female ?').toLowerCase()
-var age = +(prompt('Age?'))
+// // -------------Question------------
+// var gender = prompt('Male or female ?').toLowerCase()
+// var age = +(prompt('Age?'))
 
-if(gender == 'f'){
-  if(age>=18 && age<=60){
-    console.log('you will get ₹1500/month');
-  }else{
-    console.log('you will not getting money');
-  }
+// if(gender == 'f'){
+//   if(age>=18 && age<=60){
+//     console.log('you will get ₹1500/month');
+//   }else{
+//     console.log('you will not getting money');
+//   }
+// }
+// else{
+//   console.log('Not allowed');
+// }
+
+
+
+// console.log(undefined +  1); //NaN
+// console.log(null +  1); //1
+// console.log(undefined +  "1"); //undefined1
+// console.log(null +  "1"); //null1
+
+
+
+// The Math Object  -> Math  is a built -in object with mathematical methods and constants.
+
+// console.log(Math.PI);  //  pi value
+// console.log(Math.E);   //  euler's constant
+
+// console.log(Math.ceil(-3.5)); //always round up the value
+// console.log(Math.abs(-50)); //convert all number/value either positive or negative in absolute value (positive number)
+// console.log(Math.pow(2, 3));
+
+// // common pattern — random integer between min and max:
+// // let rand = Math.floor(Math.random() * (max - min + 1)) + min;
+// let rand = Math.floor(Math.random() * (100 - 5 + 1)) + 5;
+// console.log(rand);
+
+// //Switch Statement 
+// let day = "monday"
+// switch (day.toLowerCase()) {
+//   case "monday": console.log("Shiv ji ki pooja karo");
+//     break;
+//   case "tuesday": console.log("Hanuman ji ki pooja karo");
+//     break
+//   case "saturday": console.log("shni dev ki pooja karo");
+//     break
+//   case "sunday": console.log("Surya dev ki pooja karo");
+//     break
+//   default: console.log("Kisi din toh nha ke pooja kar liya kar");
+// }
+
+// // for...of Loop (for arrays and strings)
+
+// let fruits = ["apple", "mango", "banana", "starfruit", "pineapple"]
+// for (let fruit of fruits) {
+//   console.log(fruit);    //apple,mango,banana,starfruit,pineapple 
+// }
+
+// let word = "hello Raghav"
+// for (let char of word) {
+//   console.log(char);
+// }
+
+// // for...in Loop (for objects — brief intro)
+// let userInfo = { name: "Ankit", age: 24 }
+// for (let key in userInfo) {
+//   console.log(key, ":", userInfo[key]);  //name:"Ankit"  age:24
+// }
+
+//  break and continue
+
+// // break — exit the loop immediately
+// for (let i = 1; i <= 10; i++) {
+//   if (i === 5) break;
+//   console.log(i);
+// }// Prints: 1, 2, 3, 4
+
+// // continue — skip the current iteration, go to the next
+// for (let i = 1; i <= 5; i++) {
+//   if (i === 3) continue;
+//   console.log(i);
+// }// Prints: 1, 2, 4, 5  (3 is skipped)
+
+
+// Project 1: Simple Calculator
+// let num1 = Number(prompt("Enter first number:"));
+// let operator = prompt("Enter operator (+, -, *, /):");
+// let num2 = Number(prompt("Enter second number:"));
+// let result; if (operator === "+") result = num1 + num2;
+// else if (operator === "-") result = num1 - num2;
+// else if (operator === "*") result = num1 * num2;
+// else if (operator === "/") result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+// else result = "Invalid operator";
+// console.log("Result:", result);
+
+
+
+// Project 2: FizzBuzz (the classic interview question)
+// Print numbers 1 to 50. But:
+// • For multiples of 3, print "Fizz"
+// • For multiples of 5, print "Buzz"
+// • For multiples of both, print "FizzBuzz"
+
+// for(let i = 1 ; i<=50;i++){
+//   if(i%15 === 0 ) console.log(`${i} : FizzBuzz`);
+//   else if(i%3 === 0 ) console.log(`${i} : Fizz`);
+//   else if(i%5 === 0 ) console.log(`${i} : Buzz`);
+//   else console.log(i);
+// }
+
+
+
+// Project 3: Number Guessing  Game
+// let secret = Math.floor(Math.random() * 100) + 1;
+// let attempts = 0;
+// let guess;
+
+// do {
+//   guess = Number(prompt(`Guess a number between 1 to 100 : `));
+//   attempts++;
+//   if(guess > secret) console.log(`you guess too high`);
+//   else if (guess < secret) console.log(`you guess too low`);
+
+// } while (secret !== guess)
+// console.log(`you get it in ${attempts}`)
+
+
+
+// Project 4: Temperature Converter
+// let temp = Number(prompt("Enter Temperature :"))
+// let unit = prompt("Is it in Celsius (C) or Fahrenheit (F)?").toUpperCase()
+// if (unit === "C") console.log(`${temp}°C = ${(temp * 9 / 5) + 32}°F`);
+// else if (unit === "F") console.log(`${temp}°F = ${((temp - 32) * 5 / 9).toFixed(2)}°C`);
+// else console.log("InValid unit");
+
+
+
+
+// project 5 : Count Vowels in a String
+let str = prompt("Enter a string:").toLowerCase()
+
+let vowels = "aeiou"
+let count = 0;
+
+for(let char of str){
+  if(vowels.includes(char))
+    count++
 }
-else{
-  console.log('Not allowed');
-}
 
-
-
-
-
-
-
+console.log(`Number of vowels: ${count}`);

@@ -7,7 +7,27 @@
 //   start++;
 // }
 
-do {
-  var password = Number(prompt("Enter password"));
-} while (password != "123");
-console.log("Welcome in Application 🧑🏻‍💻");
+// do {
+//   var password = Number(prompt("Enter password"));
+// } while (password != "123");
+// console.log("Welcome in Application 🧑🏻‍💻");
+
+
+// //Print even numbers using continue and for loop
+// debugger  //debugger for understanding the flow and logic
+// for(let a =1 ; a<=10;a++){
+
+//   if(a%2 != 0){
+//     continue
+//   }
+//   console.log(a);
+//   a++ 
+
+// }
+
+
+
+
+
+
+

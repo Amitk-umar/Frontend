@@ -181,3 +181,110 @@ const newbool3 = !bool2;
 console.log("&& operator", bool1 && bool2);
 console.log("|| operator", bool1 || bool2);
 console.log("! operator", newbool3);
+
+// ## Strings
+
+// 1. Create a string and print its length.
+const intro = "I am a Web Developer";
+console.log(intro.length);
+
+// 2. Convert a string into uppercase.
+console.log(intro.toUpperCase());
+
+// 3. Convert a string into lowercase.
+console.log(intro.toLowerCase());
+
+// 4. Check if a string includes the word `"JavaScript"`.
+const astring = "hello i am working with Javascript";
+console.log(astring.includes("Javascript"));
+
+// 5. Extract the word `"World"` from `"Hello World"`.
+const word = "Hello World";
+console.log(word.slice(6));
+// Another way - by split
+console.log(word.split(" ")[1]);
+
+// 6. Replace `"apple"` with `"mango"` in a sentence.
+const fruitName = "apple";
+console.log(fruitName.replace("apple", "mango"));
+
+// 7. Split `"HTML,CSS,JS"` into an array.
+const progLang = "HTML,CSS,JS";
+console.log(progLang.split(","));
+
+// 8. Remove extra spaces from a string.
+console.log(astring.trim());
+
+// 9. Repeat the word `"Hi"` 5 times.
+const hiHello = "Hii";
+console.log(hiHello.repeat(5));
+
+// 10. Print the first character of a string.
+console.log(hiHello.charAt(0));
+
+// 11. Use template literals to print:`"My name is Amit and I am 20 years old"`
+console.log(`MY Name is Amit kumar and I am 20 years old`);
+
+// ## Numbers & Math
+
+// 1. Round `4.7` using `Math.round()`.
+console.log(Math.round(4.7));
+
+// 2. Find the square root of 81.
+console.log(Math.sqrt(6));
+
+// 3. Find the maximum number from `10, 20, 5, 99`.
+console.log(Math.max(10, 20, 5, 99));
+
+// 4. Generate a random number between 1 and 100.
+const randomValue = Math.floor(Math.random() * 100 + 1);
+console.log("Random number between  1 and 100 : ", randomValue);
+
+// 4. Generate a random number between 5 and 100.
+const randomValueBetween = Math.floor(Math.random() * 96 + 5);
+console.log("Random number between  5 and 100 : ", randomValueBetween);
+
+// 5. Convert `"99.99"` into an integer.
+console.log(parseInt(Math.floor(99.99)));
+
+// 6. Check whether `25` is an integer or not.
+console.log(Number.isInteger(25));
+
+// 7. Use `toFixed(2)` on `3.141592`.
+let num = 3.141592;
+console.log(num.toFixed(2));
+
+// ## Conditionals
+
+// 1. Check whether a number is positive or negative.
+let numb = -50;
+if (numb > 0) {
+  console.log("Positive");
+} else if (numb < 0) {
+  console.log("Negative");
+} else {
+  console.log("Zero");
+}
+// Another way --> 1 for positive , -1 for negative and 0 for Zero.
+let signNumber = -10
+signResult = Math.sign(signNumber)
+console.log(signResult);
+
+
+// 2. Check whether a number is even or odd.
+
+
+// 3. Check whether a person is eligible to vote.
+// 4. Find the largest among two numbers.
+// 5. Find the largest among three numbers.
+// 6. Check whether a year is a leap year.
+// 7. Check whether a number is divisible by both 3 and 5.
+// 8. Create a simple grading system:
+// - 90+ → A
+// - 75+ → B
+// - 50+ → C
+// - below 50 → Fail
+// 1. Check whether a character is a vowel or consonant.
+// 2. Create a calculator using `switch` statement.
+// 3. Print the day name based on a number (1–7).
+// 4. Check whether a username is `"admin"` and password is `"1234"`.
