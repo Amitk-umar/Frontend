@@ -294,20 +294,53 @@
 
 // <-------------Guess the Answer----------->
 
-var str = 'Sheryians coding school';
-var arr = str.split(' ')  ;
-console.log(arr);//(3) ['Sheryians', 'coding', 'school']
+// var str = 'Sheryians coding school';
+// var arr = str.split(' ')  ;
+// console.log(arr);//(3) ['Sheryians', 'coding', 'school']
 
-var brr = arr[1].split('');
-console.log(brr); //(6) ['c', 'o', 'd', 'i', 'n', 'g']
+// var brr = arr[1].split('');
+// console.log(brr); //(6) ['c', 'o', 'd', 'i', 'n', 'g']
 
-brr.reverse();
-console.log(brr); //(6) ['g', 'n', 'i', 'd', 'o', 'c']
+// brr.reverse();
+// console.log(brr); //(6) ['g', 'n', 'i', 'd', 'o', 'c']
 
-var str3 = brr.join(''); //'gnidoc'
-var str2 = arr.join(''); 
-console.log(str2);//'Sheryianscodingschool'
+// var str3 = brr.join(''); //'gnidoc'
+// var str2 = arr.join(''); 
+// console.log(str2);//'Sheryianscodingschool'
 
 
+
+
+// <---------------------------------Refrence Behaviour in Array --------------------------------------------->
+
+
+// // Reference Datatype -> for copying the array but not good - affect the original array
+// var arr = [10,20,30]
+// var arr2  = arr  //In JavaScript, an array is a reference data type, which means it stores a reference (memory address) pointing to where the actual data lives in the heap memory rather than storing the data directly inside the variable.
+// arr[0]  = 80 
+// console.log(arr2);  //Output: [80, 20, 30]
+// console.log(arr);   //Output: [80, 20, 30]
+
+
+// // Original way for copying the array  --> not affecting the ori
+// var arr = [10,20,30,40]
+// var arr2 = [arr[0],arr[1],arr[2],arr[3]]
+// arr2[0] = 77
+// console.log(arr2); // Output: [77, 20, 30, 40]
+// console.log(arr);  // Output : [10, 20, 30, 40]
+
+
+
+// Correct way to clone using spread operator -->not affecting the original array
+// var arr = [10, 20, 30, 40];
+// var arr2 = [...arr]
+
+// arr2.push(88)
+// console.log(arr2); // Output: [10, 20, 30, 40,88]
+// console.log(arr);  //output : [10,20,30,40]
+
+
+
+ 
 
 
