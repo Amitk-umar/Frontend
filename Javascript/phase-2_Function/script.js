@@ -266,9 +266,9 @@
 //storing even number in array using for loop and array method
 // let arr = []
 // for (let a = 1; a <= 100; a++) {
-    //     if (a % 2 == 0) {
-        //         arr.push(a)
-        //     }
+//     if (a % 2 == 0) {
+//         arr.push(a)
+//     }
 // }
 // console.log(arr);
 
@@ -309,6 +309,27 @@
 // console.log(str2);//'Sheryianscodingschool'
 
 
+// <---------------------------join method in Array ---------------------------------->
+// const elements = ['Fire', 'Air', 'Water'];
+
+// // 1. Default (uses commas)
+// console.log(elements.join());
+// // Output: 'Fire,Air,Water'
+
+// // 2. Custom string separator
+// console.log(elements.join(' + '));
+// // Output: 'Fire + Air + Water'
+
+// // 3. Empty string separator (brings them completely together)
+// console.log(elements.join(''));
+// // Output: 'FireAirWater'
+
+// // 4. Handling null or undefined values
+// const mixed = ['Hello', null, 'World', undefined];
+// console.log(mixed.join(' '));
+// // Output: 'Hello  World ' (with empty gaps)
+
+
 
 
 // <---------------------------------Refrence Behaviour in Array --------------------------------------------->
@@ -317,7 +338,7 @@
 // // Reference Datatype -> for copying the array but not good - affect the original array
 // var arr = [10,20,30]
 // var arr2  = arr  //In JavaScript, an array is a reference data type, which means it stores a reference (memory address) pointing to where the actual data lives in the heap memory rather than storing the data directly inside the variable.
-// arr[0]  = 80 
+// arr[0]  = 80
 // console.log(arr2);  //Output: [80, 20, 30]
 // console.log(arr);   //Output: [80, 20, 30]
 
@@ -341,6 +362,113 @@
 
 
 
- 
+
+
+//HOF - Higher order functions
+
+//forEach  - Iteration
+
+//map     -     Transform - it only checks condition is true or not in return and give output in [true or false] - if you write only return without any suffix then it gives you array with undefined value
+
+//filter  -  filteration  - it checks condition is true or not in return and give output by giving elements- if you write only return without any suffix then it gives you  empty array
+
+//reduce - to accumulate the value (provide a reduced single value)
+
+
+// forEach Method in Array - it does not return anything gives undefined 
+// const fruits = ['apple', 'banana', 'cherry'];
+// fruits.forEach((element,index,array)=>{
+//  console.log(`index ${index} : element ${element} (from array ${array})`);
+// })
+
+
+
+// //Sum of elements of an Array using foreach Method
+// const array_1 = [10, 20, 30, 40, 50];
+// let sum = 0
+// array_1.forEach((element) => {
+//     sum += element;
+// })
+// console.log(`Sum of all elements in Array is : ${sum}`);
+
+
+
+
+
+//map Method  - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array. It does not change the original array.
+// const array1 = [1,3,5,7,9,11]
+
+// //double every number without return
+// const doubled_numbers  = array1.map(num => num * 2)
+// console.log(doubled_numbers); //(6) [2, 6, 10, 14, 18, 22]
+
+
+// //double every number with return
+// const array1 = [1, 3, 5, 7, 9, 11]
+// const doubled_numbers = array1.map((num) => {
+//     return num*2;
+// })
+// console.log(doubled_numbers); //(6) [2, 6, 10, 14, 18, 22]
+
+
+
+
+//Filter Method
+
+// //  Searching text (Sub-string matching)
+// const fruits = ['Apple', 'Banana', 'Grapes', 'Mango'];
+// const searchFruits = (query) => {
+//     return fruits.filter(fruit => fruit.toLowerCase().includes(query.toLowerCase()));
+// };
+// console.log(searchFruits('an')); // ['Banana', 'Mango']
+
+
+// //  Removing Duplicate Values
+// const duplicates = [1, 2, 2, 3, 4, 4, 5];
+// const unique = duplicates.filter((item, index, self) => self.indexOf(item) === index);
+// console.log(unique); // [1, 2, 3, 4, 5]
+
+
+
+
+//Reduce Method - The JavaScript reduce() method executes a user-provided callback function on each element of an array to combine them into a single output value. It processes the array elements from left to right, maintaining a running total or accumulated result along the way.
+// 1 . accumulator: Stores the running result returned from the previous iteration.
+// 2. currentValue: The current element being processed in the array.
+// 3. initialValue (Optional): The value to initialize the accumulator. If omitted, the first element of the array becomes the accumulator, and iteration starts on the second element.
+
+
+// //Basic Syntax 
+// array.reduce((accumulator, currentValue, currentIndex, array) => {
+//   // Logic to transform and return the accumulator
+// }, initialValue);
+
+
+// //1. Summing an Array of Numbers
+// const numbers  = [10,200,60,450,900]
+// const sumArray = numbers.reduce((accumulator,currentValue)=>{
+//    return accumulator + currentValue;
+// },0)
+// console.log(sumArray);
+
+
+
+// //2. Flattening an Array of Arrays
+// const nested = [[1, 2], [3, 4], [5, 6]];
+
+// const flat = nested.reduce((accumulator, current) => {
+//     // console.log(current);
+//   return accumulator.concat(current);
+// }, []);
+
+// console.log(flat); // Output: [1, 2, 3, 4, 5, 6]
+
+
+// //3. Counting Instances of Object Properties
+// const  fruitBasket = ['apple','banana','orange' ,'apple','mango','banana','pineApple']
+// const fruitCount = fruitBasket.reduce((accumulator,fruit)=>{
+// accumulator[fruit]  = (accumulator[fruit] || 0 ) + 1;
+// return accumulator
+// },{})
+// console.log(fruitCount);
 
 
