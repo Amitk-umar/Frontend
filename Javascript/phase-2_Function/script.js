@@ -472,3 +472,63 @@
 // console.log(fruitCount);
 
 
+
+// //4. Find max element  in Array
+// const findMax = [50, 780, 904, 54, 74, 456, 1050]
+// const maxValue = findMax.reduce((acc, current) => {
+//     if (current > acc) {
+//         return current
+//     }
+//     else {
+//         return acc
+//     }
+// }, 0)
+// console.log(maxValue);
+
+
+
+
+
+
+//find method in javascript - The JavaScript Array.prototype.find() method returns the first element in a provided array that satisfies a specific testing function. If no elements satisfy the testing function, it returns undefined.
+
+//Syntax
+// array.find(callback(element, index, array), thisArg)
+
+// Parameters
+// callback: Function to execute on each value.element: The current element being processed.
+// index(Optional): The index of the current element.
+// array(Optional): The array find() was called upon.
+// thisArg(Optional): Value to use as this during execution.
+
+// Core Behavior
+// Stops early: It stops iterating the moment it finds a matching element.
+// No mutation: It does not change the original array.
+// Single value: It returns only one item, not an array of items.
+
+
+// //1. Find virat  in Array of person name
+// const personNames = ['Ankit','Ravi','Amit','Virat','Nitish','Raghav']
+// const findPerson  = personNames.find( e => e == 'Virat')
+// console.log(findPerson);
+
+
+// //2.Finding an Object in an Array by Property
+
+// const user = [{uName:'Amit kumar', uid : 21},{uName : 'Ravi',uid:41},{uName : 'Ankit',uid:89}]
+// const findUser = user.find(e => e.uid == 89)
+// console.log(findUser);
+
+
+// // 3. Finding the First Number Matching a Condition
+// const numbers = [5, 12, 8, 130, 44];
+
+// const found = numbers.find(element => element > 10);
+// console.log(found); // Output: 12 (even though 130 and 44 are also > 10)
+
+
+// // 4. When No Element Matches
+// const inventory = [1, 2, 3, 4];
+// const result = inventory.find(num => num > 10);
+
+// console.log(result); // Output: undefined
