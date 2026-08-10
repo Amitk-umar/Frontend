@@ -532,3 +532,71 @@
 // const result = inventory.find(num => num > 10);
 
 // console.log(result); // Output: undefined
+
+
+
+
+
+
+
+
+
+//Some method - The JavaScript Array.prototype.some() method checks whether at least one element in an array passes a test implemented by a provided function. It returns a Boolean value (true or false) and does not modify the original array.
+
+// 💡 Core Behavior
+// Short-circuits: It immediately stops iterating and returns true the moment it finds a matching element.
+// Empty Arrays: It always returns false for any condition on an empty array.
+// Sparse Arrays: It skips empty slots entirely without invoking the test function.
+
+
+// // 1. Basic Number Check
+// const numbers = [1, 3, 5, 8, 11];
+
+// const hasEven = numbers.some(num => num % 2 === 0);
+// console.log(hasEven); // true (because of 8)
+
+
+// // 2. Working with Arrays of Objects
+// const users = [
+//   { name: 'Alice', role: 'user' },
+//   { name: 'Bob', role: 'user' },
+//   { name: 'Charlie', role: 'admin' }
+// ];
+
+// const hasAdmin = users.some(user => user.role === 'admin');
+// console.log(hasAdmin); // true
+
+
+// // 3. Verifying Substrings
+// const logs = ["Error: Timeout", "Warning: Low disk space", "Success: Done"];
+// const hasCriticalError = logs.some(log => log.includes("Error"));
+// console.log(hasCriticalError); // true
+
+
+
+//every Method  - The JavaScript Array.prototype.every() method checks whether all elements in an array pass a specified test condition. It returns a boolean value: true if every element passes, and false if even a single element fails.
+
+
+// 1. Checking Numbers
+const numbers = [10, 23, 42, 7, 14];
+
+const allPositive = numbers.every(num => num > 0);
+console.log(allPositive); // true
+
+
+
+//2. Immediate Failure (Short-Circuiting)
+// const mixedNumbers = [2,3,4,6,8,10 ]
+// const allEven  = mixedNumbers.every((num) =>{
+//   console.log(`checking : ${num}`);
+//   if(num % 2 ===0 ){
+//     return num
+//   }
+// })
+// console.log(allEven);
+
+//short version
+
+const mixedNumbers = [2,3,4,6,8,10 ]
+const allEven  = mixedNumbers.every(num => num%2 === 0 )
+console.log(allEven);
