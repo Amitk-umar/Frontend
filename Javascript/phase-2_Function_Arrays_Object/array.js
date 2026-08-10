@@ -577,11 +577,11 @@
 //every Method  - The JavaScript Array.prototype.every() method checks whether all elements in an array pass a specified test condition. It returns a boolean value: true if every element passes, and false if even a single element fails.
 
 
-// 1. Checking Numbers
-const numbers = [10, 23, 42, 7, 14];
+// // 1. Checking Numbers
+// const numbers = [10, 23, 42, 7, 14];
 
-const allPositive = numbers.every(num => num > 0);
-console.log(allPositive); // true
+// const allPositive = numbers.every(num => num > 0);
+// console.log(allPositive); // true
 
 
 
@@ -597,6 +597,6 @@ console.log(allPositive); // true
 
 //short version
 
-const mixedNumbers = [2,3,4,6,8,10 ]
-const allEven  = mixedNumbers.every(num => num%2 === 0 )
-console.log(allEven);
+// const mixedNumbers = [2,3,4,6,8,10 ]
+// const allEven  = mixedNumbers.every(num => num%2 === 0 )
+// console.log(allEven);
