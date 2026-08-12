@@ -107,21 +107,72 @@
 
 
 
-const company = {
-    name: "TechCorp",
-    // Nested Object
-    location: {
-        city: "Switzerland",
-        country: "Europe"
-    },
-    // Nested Array containing objects
-    employees: [
-        { id: 1, name: "Bhola", role: "Developer" },
-        { id: 2, name: "jackson", role: "Designer" }
-    ]
+// const company = {
+//     name: "TechCorp",
+//     // Nested Object
+//     location: {
+//         city: "Switzerland",
+//         country: "Europe"
+//     },
+//     // Nested Array containing objects
+//     employees: [
+//         { id: 1, name: "Bhola", role: "Developer" },
+//         { id: 2, name: "jackson", role: "Designer" }
+//     ]
+// };
+// console.log(company.location.city); //Switzerland
+// console.log(company.employees[0].name); //Bhola
+
+
+
+// <--------------------- 12/08/2026 ---------------------------->
+
+// // Seal method in object ->  not create or add  and delete , only update
+// const groom = {
+//   name: "Ankit",
+//   age: 23,
+// };
+// const bride = {
+//   name: "Sakira",
+//   age: 21,
+// };
+// Object.seal(groom);
+// groom.name = "Raghav";// updated value from Ankit to Raghav
+
+// groom["isSingle"] = true; //it can't add in object
+// delete groom.age   //it cant't delete from object
+
+// console.log(groom.name, "Weds", bride.name); //Raghav Weds Sakira   - with seal you can modify or update the element
+// console.log(groom); //after  sealing you can not add element but wihtout sealing its can be add  element in object   output :   {name: 'Raghav', age: 23}
+
+
+
+
+
+//Freeze method in object  - The Object.freeze() static method makes a JavaScript object completely immutable, providing the highest integrity level available in the language.Once an object is frozen using the  Object.freeze() method, external code cannot add new properties, delete existing properties, or change the values of any top-level properties.
+
+"use strict"; // Throws explicit errors on illegal mutations
+
+const user = {
+  name: "Bheem Singh",
+  role: "Admin",
 };
-console.log(company.location.city); //Switzerland
-console.log(company.employees[0].name); //Bhola
+
+// Freeze the object
+Object.freeze(user);
+
+// 1. Attempting to modify a property fails
+user.name = "Spiderman"; // TypeError in strict mode
+
+// 2. Attempting to add a property fails
+user.age = 25; // TypeError in strict mode
+
+// 3. Attempting to delete a property fails
+delete user.role; // TypeError in strict mode
+
+console.log(user); // {name: 'Bheem Singh', role: 'Admin'}
+
+
 
 
 
