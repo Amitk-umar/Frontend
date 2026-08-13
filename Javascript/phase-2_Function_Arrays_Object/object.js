@@ -151,28 +151,115 @@
 
 //Freeze method in object  - The Object.freeze() static method makes a JavaScript object completely immutable, providing the highest integrity level available in the language.Once an object is frozen using the  Object.freeze() method, external code cannot add new properties, delete existing properties, or change the values of any top-level properties.
 
-"use strict"; // Throws explicit errors on illegal mutations
 
-const user = {
-  name: "Bheem Singh",
-  role: "Admin",
+// "use strict"; // Throws explicit errors on illegal mutations
+
+// const user = {
+//   name: "Bheem Singh",
+//   role: "Admin",
+// };
+
+// // Freeze the object
+// Object.freeze(user);
+
+// // 1. Attempting to modify a property fails
+// user.name = "Spiderman"; // TypeError in strict mode
+
+// // 2. Attempting to add a property fails
+// user.age = 25; // TypeError in strict mode
+
+// // 3. Attempting to delete a property fails
+// delete user.role; // TypeError in strict mode
+
+// console.log(user); // {name: 'Bheem Singh', role: 'Admin'}
+
+
+
+
+
+
+
+
+
+//———————————————————————————— Destructuring in JavaScript with Array And Objects ————————————————————————————
+
+//Destructuring in JavaScript is a shorthand syntax that allows you to unpack values from arrays or properties from objects directly into distinct variables. This modern ES6 feature replaces verbose index-based or dot-notation assignments with a cleaner, highly readable structure.
+
+// 1. Array Destructuring -> Array destructuring maps variables to values based on their position (index) within the array.
+
+// const rgb = [255, 128, 0]
+// const tenMultiples = [10, 20, 30, 40, 50, 60]
+// // //The Traditional Way
+// // const red = rgb[0]
+// // const green = rgb[1]
+// // const blue = rgb[2]
+// // console.log(blue);
+
+// // The Destructuring Way
+// const [red, green, blue] = rgb
+// console.log(red); //255
+// console.log(green); //128
+// console.log(blue); //0
+
+// //Destructuring With rest operator (...)
+
+// const [a, b, ...rest] = tenMultiples
+// console.log(a); //10
+// console.log(b); //20
+// console.log(rest); // [30, 40, 50, 60]
+
+
+
+
+//2. Object Destructuring - Object destructuring maps variables based on the exact property keys, meaning the order of extraction does not matter.
+
+// const user = { id: 101, username: 'abhikansh', role: 'Admin', city: 'Ludhiana' };
+
+// // // traditional way
+// // const personName = user.username
+// // const personId = user.id
+// // console.log(personName); //abhikansh
+// // console.log(personId); //101
+
+// // The Destructuring Way
+// const { username: personName, id: personId, ...rest } = user
+// console.log(personName, personId, rest); //abhikansh 101 {role: 'Admin', city: 'Ludhiana'}
+
+
+
+
+
+//🏆 The Ultimate Real-World Example
+
+// Simulated API Response
+const apiResponse = {
+  status: "success",
+  data: {
+    profile: {
+      firstName: "Bhavrattan",
+      lastName: "Singh",
+      email: "Bhavrattan@example.com"
+    },
+    scores: [95, 88, 91]
+  }
 };
 
-// Freeze the object
-Object.freeze(user);
+// 1. Deep Nested & Rename Destructuring
+const {
+  data: {
+    profile: { firstName: name }, // Digs deep and renames firstName to name
+    scores: [topScore]            // Unpacks the very first element from the scores array
+  } } = apiResponse;
 
-// 1. Attempting to modify a property fails
-user.name = "Spiderman"; // TypeError in strict mode
-
-// 2. Attempting to add a property fails
-user.age = 25; // TypeError in strict mode
-
-// 3. Attempting to delete a property fails
-delete user.role; // TypeError in strict mode
-
-console.log(user); // {name: 'Bheem Singh', role: 'Admin'}
+console.log(name);     // Output: Bhavrattan
+console.log(topScore); // Output: 95
 
 
+// 2. Destructuring Directly in Function Parameters
+// This pattern is incredibly popular in frameworks like React
+function displayUser({ profile: { email }, status ="success"}) {
+  console.log(`User email is ${email}. API Status: ${status}`);
+}
 
-
-
+// Pass the inner 'data' block or root response directly
+displayUser(apiResponse.data); 
