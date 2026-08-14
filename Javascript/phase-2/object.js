@@ -229,37 +229,112 @@
 
 
 
-//🏆 The Ultimate Real-World Example
+// //🏆 The Ultimate Real-World Example
 
-// Simulated API Response
-const apiResponse = {
-  status: "success",
-  data: {
-    profile: {
-      firstName: "Bhavrattan",
-      lastName: "Singh",
-      email: "Bhavrattan@example.com"
-    },
-    scores: [95, 88, 91]
-  }
-};
+// // Simulated API Response
+// const apiResponse = {
+//   status: "success",
+//   data: {
+//     profile: {
+//       firstName: "Bhavrattan",
+//       lastName: "Singh",
+//       email: "Bhavrattan@example.com"
+//     },
+//     scores: [95, 88, 91]
+//   }
+// };
 
-// 1. Deep Nested & Rename Destructuring
-const {
-  data: {
-    profile: { firstName: name }, // Digs deep and renames firstName to name
-    scores: [topScore]            // Unpacks the very first element from the scores array
-  } } = apiResponse;
+// // 1. Deep Nested & Rename Destructuring
+// const {
+//   data: {
+//     profile: { firstName: name }, // Digs deep and renames firstName to name
+//     scores: [topScore]            // Unpacks the very first element from the scores array
+//   } } = apiResponse;
 
-console.log(name);     // Output: Bhavrattan
-console.log(topScore); // Output: 95
+// console.log(name);     // Output: Bhavrattan
+// console.log(topScore); // Output: 95
 
 
-// 2. Destructuring Directly in Function Parameters
-// This pattern is incredibly popular in frameworks like React
-function displayUser({ profile: { email }, status ="success"}) {
-  console.log(`User email is ${email}. API Status: ${status}`);
-}
+// // 2. Destructuring Directly in Function Parameters
+// // This pattern is incredibly popular in frameworks like React
+// function displayUser({ profile: { email }, status = "success" }) {
+//   console.log(`User email is ${email}. API Status: ${status}`);
+// }
 
-// Pass the inner 'data' block or root response directly
-displayUser(apiResponse.data); 
+// // Pass the inner 'data' block or root response directly
+// displayUser(apiResponse.data);
+
+
+
+
+
+
+
+
+
+//Shallow Copy And Deep copy  --> The core difference is that a shallow copy duplicates only the top-level properties of an object, while a deep copy recursively duplicates every single level, creating a completely independent clone.In JavaScript, primitive types (like numbers and strings) are passed by value, but structural types (like objects and arrays) are passed by reference. This behavior completely changes how copies function based on your data structure.
+
+
+// Shallow copy  - A shallow copy creates a new object, but if any properties are nested objects or arrays, it only copies their memory references. (Mutation happens in original Array/object)
+
+// const original = {
+//   name: 'Arjun singh',
+//   age: 21,
+//   experience: {
+//     company: 'Amazone',
+//     duration: '2yrs',
+//     role: 'SDE II'
+//   }
+// }
+
+// const shallowCopy  = {...original}
+
+// shallowCopy.name = 'Akshay kumar'
+// shallowCopy.experience.company = 'Microsft'
+
+// console.log(original);  //{name: 'Arjun singh', age: 21, experience: {…}} - ☠️here company accidently change to Microsoft
+// console.log(shallowCopy);  //{name: 'Akshay kumar', age: 21, experience: {…}}  - ☠️ here name and company will updated without any problem but it accidently change the original object due to Nested objects/arrays will copy the object by Shared by reference.
+
+
+
+
+
+//deep copy  - A deep copy cuts all ties with the original object. It copies every value into a brand new memory location, ensuring that mutations never leak backwards.
+
+// // 1. with structuredClone  method
+// const original = { name: "Pawan Singh", details: { age: 25 } };
+// const deepCopy = structuredClone(original);
+
+// deepCopy.details.age = 30;
+
+// console.log(original.details.age); // 25 (Safe!)
+// console.log(deepCopy); //{name: 'Pawan Singh', details: {…}}  -- and age is 30 ( ✅ Perfectly copy the original object and make changes inn deepcopy not in original one )
+
+
+
+// // 2. with JSON.parse and JSON.stringify
+
+// const standardMenu = {
+//   theme: 'shaadi feast',
+//   items: ['panner tikka ', 'spring roll', 'dal makhani'],
+//   announceMEnu: function () {
+//     console.log(`${this.theme}`);
+//   }
+// }
+
+// // We use JSON.parse(JSON.stringify()) to make a completely independent copy of the standard menu so we can modify the VIP version without touching the original.
+
+// // Step 1: Stringify turns the object into a JSON string
+// // Step 2: Parse turns that string back into a brand new object
+// const vipMenu = JSON.parse(JSON.stringify(standardMenu))
+
+// // Modifying the VIP menu (Safe!)
+// vipMenu.theme = 'Royal Shaadi Feast';
+// vipMenu.items.push('Kesar pista kulfi')
+// console.log(vipMenu.theme); //Royal Shaadi Feast
+// console.log(vipMenu.items); //['panner tikka ', 'spring roll', 'dal makhani', 'Kesar pista kulfi']
+
+// console.log(standardMenu);
+
+
+
