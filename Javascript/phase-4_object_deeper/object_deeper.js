@@ -109,25 +109,42 @@ console.log(`---------------------------Js Object Deeper -----------------------
 
 
 
-//.call() is using it to borrow a method from one object and use it on another object.
 
-// 1. A restaurant object with data and a method
-const restaurant1 = {
-  brand: "Haldiram's",
-  printBill(item, price) {
-    console.log(`Welcome to ${this.brand}! Your ${item} costs ₹${price}.`);
-  }
+
+
+
+//Setup Example Code for call() , apply() and bind()
+
+
+//.call() - call runs the function right away. You pass the object you want to use as this first, followed by individual arguments separated by commas.
+const user = {
+  firstName: "Virat",
+  lastName: "kohli"
 };
 
-// 2. A separate restaurant object with only data
-const restaurant2 = {
-  brand: "Bikanervala"
-};
+function introduce(greeting, punctuation) {
+  console.log(`${greeting}, I am ${this.firstName} ${this.lastName}${punctuation}`);
+}
 
-// 3. Bikanervala borrows the billing method using .call()
-restaurant1.printBill.call(restaurant2, "Chole Bhature", 180);
+introduce.call(user,'Hello','!')
 
-// Output: Welcome to Bikanervala! Your Chole Bhature costs ₹180.
+
+//apply() Method - apply works exactly like call and executes immediately. The only difference is that it accepts additional arguments inside a single array.
+// Syntax: function.apply(thisArg, [arg1, arg2, ...])
+introduce.apply(user, ["Welcome", "."]); 
+
+// Output: Welcome, I am Virat kohli.
+
+
+//.bind() - bind does not call the function right away. Instead, it duplicates the function and links it permanently to the object you provided. You can invoke it whenever you need it in the future.
+
+// Syntax: const newFunc = function.bind(thisArg, arg1, arg2, ...)
+const greetVirat = introduce.bind(user);
+
+// You can call it later
+greetVirat("Hey", " ??"); 
+
+// Output: Hey, I am Virat kohli??
 
 
 
