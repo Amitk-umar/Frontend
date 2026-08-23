@@ -116,35 +116,67 @@ console.log(`---------------------------Js Object Deeper -----------------------
 //Setup Example Code for call() , apply() and bind()
 
 
-//.call() - call runs the function right away. You pass the object you want to use as this first, followed by individual arguments separated by commas.
-const user = {
-  firstName: "Virat",
-  lastName: "kohli"
-};
+// // .call() - call runs the function right away. You pass the object you want to use as this first, followed by individual arguments separated by commas.
+// const user = {
+//   firstName: "Virat",
+//   lastName: "kohli"
+// };
 
-function introduce(greeting, punctuation) {
-  console.log(`${greeting}, I am ${this.firstName} ${this.lastName}${punctuation}`);
+// function introduce(greeting, punctuation) {
+//   console.log(`${greeting}, I am ${this.firstName} ${this.lastName}${punctuation}`);
+// }
+
+// introduce.call(user,'Hello','!')
+
+
+
+
+
+
+
+// //apply() Method - apply works exactly like call and executes immediately. The only difference is that it accepts additional arguments inside a single array.
+// // Syntax: function.apply(thisArg, [arg1, arg2, ...])
+// introduce.apply(user, ["Welcome", "."]); 
+
+// // Output: Welcome, I am Virat kohli.
+
+
+
+
+
+
+// //.bind() - bind does not call the function right away. Instead, it duplicates the function and links it permanently to the object you provided. You can invoke it whenever you need it in the future.
+
+// // Syntax: const newFunc = function.bind(thisArg, arg1, arg2, ...)
+// const greetVirat = introduce.bind(user);
+
+// // You can call it later
+// greetVirat("Hey", " ??"); 
+
+// // Output: Hey, I am Virat kohli??
+
+
+
+
+
+
+
+//Prototype and __proto__ in js
+
+function Car(brand) {
+    this.brand = brand;
 }
 
-introduce.call(user,'Hello','!')
 
+// Adding a method to the blueprint (prototype)
+Car.prototype.startEngine = function() {
+    console.log(this.brand + " engine started... Vroom vroom!");
+};
 
-//apply() Method - apply works exactly like call and executes immediately. The only difference is that it accepts additional arguments inside a single array.
-// Syntax: function.apply(thisArg, [arg1, arg2, ...])
-introduce.apply(user, ["Welcome", "."]); 
+const myCar = new Car("Tata Harrier");
+myCar.startEngine(); // Output: Tata Harrier engine started... Vroom vroom!
 
-// Output: Welcome, I am Virat kohli.
-
-
-//.bind() - bind does not call the function right away. Instead, it duplicates the function and links it permanently to the object you provided. You can invoke it whenever you need it in the future.
-
-// Syntax: const newFunc = function.bind(thisArg, arg1, arg2, ...)
-const greetVirat = introduce.bind(user);
-
-// You can call it later
-greetVirat("Hey", " ??"); 
-
-// Output: Hey, I am Virat kohli??
-
+// Here, myCar's __proto__ points to Car's prototype
+console.log(myCar.__proto__ === Car.prototype); // true
 
 
