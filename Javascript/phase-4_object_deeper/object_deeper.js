@@ -163,21 +163,21 @@ console.log(`---------------------------Js Object Deeper -----------------------
 
 //Prototype and __proto__ in js
 
-function Car(brand) {
-    this.brand = brand;
-}
+// function Car(brand) {
+//     this.brand = brand;
+// }
 
 
-// Adding a method to the blueprint (prototype)
-Car.prototype.startEngine = function() {
-    console.log(this.brand + " engine started... Vroom vroom!");
-};
+// // Adding a method to the blueprint (prototype)
+// Car.prototype.startEngine = function() {
+//     console.log(this.brand + " engine started... Vroom vroom!");
+// };
 
-const myCar = new Car("Tata Harrier");
-myCar.startEngine(); // Output: Tata Harrier engine started... Vroom vroom!
+// const myCar = new Car("Tata Harrier");
+// myCar.startEngine(); // Output: Tata Harrier engine started... Vroom vroom!
 
-// Here, myCar's __proto__ points to Car's prototype
-console.log(myCar.__proto__ === Car.prototype); // true
+// // Here, myCar's __proto__ points to Car's prototype
+// console.log(myCar.__proto__ === Car.prototype); // true
 
 
 
