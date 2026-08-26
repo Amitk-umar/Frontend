@@ -28,31 +28,36 @@ console.log("---------------------OOPS IN JS---------------------------");
 
 
 //Example of getting Student Detail
-// function MakeStudents(fname, lname, contact, isVerified) {
-//     this.fname = fname;
-//     this.lname = lname;
-//     this.contact = contact;
-//     this.isVerified = isVerified;
-//     this.showProfile = function () {
-//         if (this.isVerified) {
-//             console.log(`Name: ${this.fname} ${this.lname}, Contact: ${this.contact}`);
-//         }else{
-//             console.log('User Not Verified');
-//         }
+function MakeStudents(fname, lname, contact, isVerified) {
+    this.fname = fname;
+    this.lname = lname;
+    this.contact = contact;
+    this.isVerified = isVerified;
+}
+// let showProfile = function () {
+//     if (this.isVerified) {
+//         console.log(`Name: ${this.fname} ${this.lname}, Contact: ${this.contact}`);
+//     } else {
+//         console.log('User Not Verified');
 //     }
 // }
+// MakeStudents.prototype.showProfile = showProfile
 
-// let s1 = new MakeStudents('Abhishek', 'Mishra', 98765, true)
-// let s2 = new MakeStudents('Yash', 'Yadav', 545454, true)
-// let s3 = new MakeStudents('Manas', 'Pancholi', 233422, false)
-// let s4 = new MakeStudents('Anurag', 'Kulshreshtha', 765656, true)
+MakeStudents.prototype.company = 'Google'
 
-// s4.showProfile()
+let s1 = new MakeStudents('Abhishek', 'Mishra', 98765, true)
+let s2 = new MakeStudents('Yash', 'Yadav', 545454, true)
+let s3 = new MakeStudents('Manas', 'Pancholi', 233422, false)
+let s4 = new MakeStudents('Anurag', 'Kulshreshtha', 765656, true)
+console.log(s1.company);  //Google 
 
 
 // console.log('------------------ Class And  Constructor --------------------');
 
-// //Class and Constructor 
+
+
+
+// //Class and Constructor
 // class MakeStudents {
 //     constructor(fname, lname, contact, isVerified) {
 //         this.fname = fname;
@@ -83,22 +88,56 @@ console.log("---------------------OOPS IN JS---------------------------");
 //Another example of Class And Constructor
 
 // 1. Defining the Class
-class Car {
-    // 2. The Constructor
-    constructor(company,model,year) {
-        this.company = company;
-        this.model = model;
-        this.year = year;
+// class Car {
+//     // 2. The Constructor
+//     constructor(company,model,year) {
+//         this.company = company;
+//         this.model = model;
+//         this.year = year;
+//     }
+//     // 3. A Class Method (Behavior)
+//     startEngine() {
+//         console.log(`The ${this.year} ${this.company} ${this.model}'s engine is running.`);
+//     }
+// }
+// // 4. Creating Instances using the 'new' keyword
+// const myCar = new Car("Toyota", "Corolla", 2024);
+// const yourCar = new Car("Honda", "Civic", 2023);
+
+// myCar.startEngine()     
+
+
+
+
+//ES6 Classes Example 
+class User {
+    constructor(fname, lname, contact) {
+        this.fname = fname
+        this.lname = lname
+        this.contact = contact
     }
-    // 3. A Class Method (Behavior)
-    startEngine() {
-        console.log(`The ${this.year} ${this.company} ${this.model}'s engine is running.`);
+    greet() {
+        console.log('Welcome', this.fname);
     }
 }
-// 4. Creating Instances using the 'new' keyword
-const myCar = new Car("Toyota", "Corolla", 2024);
-const yourCar = new Car("Honda", "Civic", 2023);
 
-myCar.startEngine()     
+class Admin extends User {
+    constructor(fname, lname, contact) {
+        super(fname, lname, contact)
+        this.adminAccess = true
+    }
+    addCourse() {
+        console.log('New Course Added');
+    }
+    removeAllCourses() {
+        console.log('All Courses Removed');
+    }
+}
 
+var u1 = new User('Harsh', 'Singh', 887867)
+var u2 = new Admin('Sarthak', 'Sharma', 5432)
 
+u1.greet()
+u2.greet()
+u2.addCourse()
+u2.removeAllCourses()
