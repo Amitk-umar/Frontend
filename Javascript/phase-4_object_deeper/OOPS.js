@@ -27,13 +27,14 @@ console.log("---------------------OOPS IN JS---------------------------");
 // book1.frontPage() //Book Name :  The Great Gatsby Author Name :  F. Scott Fitzgerald Pages :  180
 
 
-//Example of getting Student Detail
-function MakeStudents(fname, lname, contact, isVerified) {
-    this.fname = fname;
-    this.lname = lname;
-    this.contact = contact;
-    this.isVerified = isVerified;
-}
+//Example of getting Student Detail - prototypal inheritance
+
+// function MakeStudents(fname, lname, contact, isVerified) {
+//     this.fname = fname;
+//     this.lname = lname;
+//     this.contact = contact;
+//     this.isVerified = isVerified;
+// }
 // let showProfile = function () {
 //     if (this.isVerified) {
 //         console.log(`Name: ${this.fname} ${this.lname}, Contact: ${this.contact}`);
@@ -43,13 +44,13 @@ function MakeStudents(fname, lname, contact, isVerified) {
 // }
 // MakeStudents.prototype.showProfile = showProfile
 
-MakeStudents.prototype.company = 'Google'
+// MakeStudents.prototype.company = 'Google'
 
-let s1 = new MakeStudents('Abhishek', 'Mishra', 98765, true)
-let s2 = new MakeStudents('Yash', 'Yadav', 545454, true)
-let s3 = new MakeStudents('Manas', 'Pancholi', 233422, false)
-let s4 = new MakeStudents('Anurag', 'Kulshreshtha', 765656, true)
-console.log(s1.company);  //Google 
+// let s1 = new MakeStudents('Abhishek', 'Mishra', 98765, true)
+// let s2 = new MakeStudents('Yash', 'Yadav', 545454, true)
+// let s3 = new MakeStudents('Manas', 'Pancholi', 233422, false)
+// let s4 = new MakeStudents('Anurag', 'Kulshreshtha', 765656, true)
+// console.log(s1.company);  //Google 
 
 
 // console.log('------------------ Class And  Constructor --------------------');
@@ -109,7 +110,7 @@ console.log(s1.company);  //Google
 
 
 
-//ES6 Classes Example 
+//ES6 Classes Example  - Classical inheritance
 class User {
     constructor(fname, lname, contact) {
         this.fname = fname
