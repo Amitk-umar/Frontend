@@ -110,35 +110,86 @@ console.log("---------------------OOPS IN JS---------------------------");
 
 
 
-//ES6 Classes Example  - Classical inheritance
-class User {
-    constructor(fname, lname, contact) {
-        this.fname = fname
-        this.lname = lname
-        this.contact = contact
-    }
-    greet() {
-        console.log('Welcome', this.fname);
-    }
+// //ES6 Classes Example  - Classical inheritance
+// class User {
+//     constructor(fname, lname, contact) {
+//         this.fname = fname
+//         this.lname = lname
+//         this.contact = contact
+//     }
+//     greet() {
+//         console.log('Welcome', this.fname);
+//     }
+// }
+
+// class Admin extends User {
+//     constructor(fname, lname, contact) {
+//         super(fname, lname, contact)
+//         this.adminAccess = true
+//     }
+//     addCourse() {
+//         console.log('New Course Added');
+//     }
+//     removeAllCourses() {
+//         console.log('All Courses Removed');
+//     }
+// }
+
+// var u1 = new User('Harsh', 'Singh', 887867)
+// var u2 = new Admin('Sarthak', 'Sharma', 5432)
+
+// u1.greet()
+// u2.greet()
+// u2.addCourse()
+// u2.removeAllCourses()
+
+
+
+
+
+
+
+
+//static methods and static properties
+
+class Car {
+  // 1. STATIC PROPERTY (Factory ka data)
+  // Ye kisi ek car ka nahi, puri class ka data hai.
+  static totalCarsMade = 0;
+  static factoryLocation = "Delhi, India";
+
+  constructor(brand, color) {
+    // 2. NORMAL PROPERTIES (Actual Car ka data)
+    this.brand = brand;
+    this.color = color;
+    
+    // Jab bhi nayi car banegi, hum factory ka counter +1 kar denge
+    Car.totalCarsMade++; 
+  }
+
+  // 3. NORMAL METHOD (Actual car action karegi)
+  drive() {
+    return `Meri ${this.color} ${this.brand} chal rahi hai! Vroom!`;
+  }
+
+  // 4. STATIC METHOD (Factory ka action)
+  // Ise call karne ke liye actual car ki zarurat nahi hai.
+  static getFactoryInfo() {
+    return `Ye factory ${this.factoryLocation} mein hai aur abhi tak ${this.totalCarsMade} cars bana chuki hai.`;
+  }
 }
 
-class Admin extends User {
-    constructor(fname, lname, contact) {
-        super(fname, lname, contact)
-        this.adminAccess = true
-    }
-    addCourse() {
-        console.log('New Course Added');
-    }
-    removeAllCourses() {
-        console.log('All Courses Removed');
-    }
-}
+// --- ISTEMAAL KAISE KAREIN ---
 
-var u1 = new User('Harsh', 'Singh', 887867)
-var u2 = new Admin('Sarthak', 'Sharma', 5432)
+// A. STATIC CHEEZEIN SEEDHA CLASS KE NAAM SE CALL HOTI HAIN
+console.log(Car.factoryLocation); // Output: "Delhi, India"
+console.log(Car.getFactoryInfo()); // Output: Ye factory Delhi, India mein hai aur abhi tak 0 cars bana chuki hai.
 
-u1.greet()
-u2.greet()
-u2.addCourse()
-u2.removeAllCourses()
+// B. NORMAL CHEEZEIN NAYI CAR (OBJECT) BANAKAR CALL HOTI HAIN
+const meriCar = new Car("Swift", "Red");
+const dostKiCar = new Car("Honda City", "Black");
+
+console.log(meriCar.drive()); // Output: "Meri Red Swift chal rahi hai! Vroom!"
+
+// C. CHECK KARTE HAIN TOTAL CARS KITNI BANI (STATIC PROPERTY)
+console.log(Car.totalCarsMade); // Output: 2
