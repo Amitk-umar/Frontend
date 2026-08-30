@@ -25,10 +25,90 @@
 // clearInterval(intervalId); 
 
 
- async function apiCall(){
-  const fetchingData = await fetch('https://jsonplaceholder.typicode.com/todos/1')
-  console.log(fetchingData);
 
+
+
+
+
+
+
+
+
+//Async await function
+
+
+//  async function apiCalling(){
+//   const response = await fetch('https://picsum.photos/v2/list')
+//   let data  = await response.json()
+//   console.log(data);
+
+// }
+
+// apiCalling()
+
+
+
+// //Promises in Async js
+// let p1 = new Promise(function (response, reject) {
+
+//   console.log('promise is pending...');
+//   let result = true
+//   setTimeout(() => {
+//     if (result) {
+
+//       response()
+//     }
+//     else {
+
+//       reject()
+//     }
+//   }, 2000);
+// }).then(function () {
+//   console.log('Promise is Fulfilled');
+// }).catch(function () {
+//   console.log('Promise is Rejected');
+// }).finally(function () {
+//   console.log('promise complete');
+// })
+
+
+
+//Food order in Zomato Example
+let foodOrder = function () {
+
+  let myOrder = new Promise(function (res, rej) {
+    console.log('your order is Coming...');
+
+    let orderStatus = true
+    setTimeout(() => {
+      if (orderStatus) {
+        res()
+      } else {
+        rej()
+      }
+    }, 2000);
+  }).then(function () {
+    console.log('order received it time to make Payment...');
+  }).catch(function () {
+    console.log('Not received order');
+  }).finally(function () {
+    console.log('Order Received Successfully !');
+  })
 }
+foodOrder()
 
-apiCall()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
