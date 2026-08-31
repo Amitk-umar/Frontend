@@ -74,34 +74,59 @@
 
 
 //Food order in Zomato Example
-let foodOrder = function () {
+// let foodOrder = function () {
 
-  let myOrder = new Promise(function (res, rej) {
-    console.log('your order is Coming...');
+//   let myOrder = new Promise(function (res, rej) {
+//     console.log('your order is Coming...');
 
-    let orderStatus = true
-    setTimeout(() => {
-      if (orderStatus) {
-        res()
-      } else {
-        rej()
-      }
-    }, 2000);
-  }).then(function () {
-    console.log('order received it time to make Payment...');
-  }).catch(function () {
-    console.log('Not received order');
-  }).finally(function () {
-    console.log('Order Received Successfully !');
-  })
+//     let orderStatus = true
+//     setTimeout(() => {
+//       if (orderStatus) {
+//         res()
+//       } else {
+//         rej()
+//       }
+//     }, 2000);
+//   }).then(function () {
+//     console.log('order received it time to make Payment...');
+//   }).catch(function () {
+//     console.log('Not received order');
+//   }).finally(function () {
+//     console.log('Order Received Successfully !');
+//   })
+// }
+// foodOrder()
+
+
+
+
+
+// let fetchData = fetch('https://fakestoreapi.com/products')
+
+// fetchData.then((res) => {
+//   console.log('data aa rha hai ✅');
+//   return res.json()
+// }).then((data) => {
+//   console.log(data);
+// }).catch(function () {
+//   console.error('data nhi aaya ❌');
+// })
+
+
+
+
+// Easy by going with Async await function
+async function datalao() {
+  try {
+    let response = await fetch('https://fakestoreapi.com/products')
+    let data = await response.json()
+    // console.log(data);
+    data.forEach(data => console.log(data.title))
+  } catch (error) {
+    console.error('inValid URL')
+  }
 }
-foodOrder()
-
-
-
-
-
-
+datalao()
 
 
 
