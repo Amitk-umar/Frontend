@@ -18,4 +18,4 @@ console.dir(h1);
 // innertext
 // textcontent
 
-h1.style.backgroundColor = "hotpink"
+h1.style.backgroundColor = "hotpink" //style using selected element with style method
