@@ -27,8 +27,16 @@ const body = document.body;
 h2.textContent = "<b>Bold</b>" // or innerText will display the literal string "<b>Bold</b>" as text on the screen, treating the brackets as safe strings.
 h2.innerHTML = "<b>Bold <i> or ye italic ho gya</i></b>" // will actually render Bold text on the browser screen.element.
 
-console.log(body.textContent);
-console.log(body.innerText);
+console.log(body.innerText); //give only text
+console.log(body.textContent); //gives text and maintain structure as well
+
+h1.style.color = "white"
+h1.style.fontSize = "50px"
+h1.style.fontStyle = "italic"
+h1.style.backgroundColor = "black"
+
+
+
 
 
 
