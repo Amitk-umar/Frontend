@@ -37,6 +37,27 @@ h1.style.backgroundColor = "black"
 
 
 
+//Classes in dom
+
+// // is my h2 has class or not ?
+// const isClass = h2.classList.contains('head2')
+// console.log(isClass); //true
+
+
+//replace old class with new class dynamically
+const newClass = h2.classList.replace('head2','newhead2')
+
+
+//toggle - agar class lagi hogi toh hta dega nhi toh lga dega
+const toggleClass = h1.classList.toggle('heading1')
+
+//remove - class ko hta dega
+const removeClass = h1.classList.remove('heading1')
+
+// add -to add class
+const div = document.querySelector('div')
+
+div.classList.add('box')
 
 
 
