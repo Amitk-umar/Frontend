@@ -18,3 +18,11 @@ const hasClass = p.hasAttribute("class")
 console.log(hasClass); //false
 
 console.log(getClass); //null
+
+
+
+//valid custom attribute with data- and update with dataset using method with camelCase
+const userCard = document.querySelector("#user-card")
+console.log(userCard.getAttribute('data-user-id')); //123
+userCard.dataset.userId = "9300"
+console.log(userCard.getAttribute('data-user-id')); //9300
