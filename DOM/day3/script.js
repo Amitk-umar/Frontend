@@ -31,16 +31,38 @@
 
 
 
-//input.value VS input.getAttribute
+// //input.value VS input.getAttribute
 
-const inp = document.querySelector("input")
-const btn = document.querySelector("button")
+// const inp = document.querySelector("input")
+// const btn = document.querySelector("button")
 
-btn.addEventListener("click", () => {
+// btn.addEventListener("click", () => {
 
-    console.log(inp.value); //this is live
-    console.log(inp.getAttribute("value"));  //but this static ,the value we give in input tag in html
-})
+//     console.log('this is input.value : ', inp.value); //this is live
+//     console.log('this is via Attribute :', inp.getAttribute("value"));  //but this static ,the value we give in input tag in html
+// })
 
 
 
+
+// //creating , inserting(appending) and removing element from dom
+
+// const main = document.querySelector('main')
+// //createElement
+// const footer = document.createElement('footer')
+// const span = document.createElement('span')
+// span.innerHTML =  'hello , i am created <i>dynammically</i>'
+// //inserting (appending)
+// // 1.appendChild() - old [Insert only a single element at a time]
+// // 2.append()  - new  [insert multiple element at a time ]
+
+// // main.appendChild(footer,span) //adding only footer not span element
+// main.append(footer,span)  //adding both elements
+
+// // main.removeChild(span)
+
+
+
+
+
+//insertBefore() ---    

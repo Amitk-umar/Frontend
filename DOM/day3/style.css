@@ -1,4 +1,4 @@
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,5 +8,24 @@ body,
 html {
     height: 100%;
     width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
- */
+main{
+    height: 50%;
+    width: 60%;
+    background-color: grey;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+.box{
+    height: 180px;
+    width: 250px;
+    background-color: green;
+}
+
