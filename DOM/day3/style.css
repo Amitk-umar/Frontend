@@ -16,7 +16,7 @@ html {
 main{
     height: 50%;
     width: 60%;
-    background-color: grey;
+    background-color: rgb(99, 98, 98);
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -26,6 +26,6 @@ main{
 .box{
     height: 180px;
     width: 250px;
-    background-color: green;
+    background-color: red;
 }
 

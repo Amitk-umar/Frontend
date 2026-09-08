@@ -62,7 +62,54 @@
 // // main.removeChild(span)
 
 
+// old api
+// appendchild()
+// insertBefore()
+// removechild()
+
+
+// new api
+// append()
+// prepend()
+// before()
+// after()
+// replacewith()
 
 
 
-//insertBefore() ---    
+
+// //insertBefore() ---    
+
+const main = document.querySelector('main')
+// const box1 = document.querySelector('.box1')
+// const box2 = document.querySelector('.box2')
+// const box3 = document.querySelector('.box3')
+
+// box2.style.backgroundColor = "yellow"
+// box3.style.backgroundColor = "blue"
+// main.insertBefore(box2,box1)
+
+
+
+const box1  = document.createElement('div')
+const box2  = document.createElement('div')
+const box3  = document.createElement('div')
+
+box1.classList.add('box')
+
+box2.classList.add('box')
+box2.style.backgroundColor = "yellow"
+
+box3.classList.add('box')
+box3.style.backgroundColor = "blue"
+
+main.append(box1,box2) //red yellow
+// main.prepend(box3)  //sabse pehle add karta hai
+
+// box1.before(box2) //yellow red
+
+// box2.after(box1) //yellow red
+
+main.replaceChild(box3,box1)  //blue yellow
+box3.replaceWith(box1) //red yellow
+
