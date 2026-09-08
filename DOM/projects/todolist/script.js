@@ -4,7 +4,7 @@ const todoBox = document.querySelector('.todo-list')
 
 add.addEventListener('click', () => {
   const value = input.value;
-if(value.trim() === "") return;
+  if (value.trim() === "") return;
 
   todoBox.innerHTML += `  <div class="li">
           <h3>${value}</h3>
@@ -14,10 +14,30 @@ if(value.trim() === "") return;
           </div>
         </div>`
 
-input.value =""; 
+  input.value = "";
 
 })
 
+//delete
+todoBox.addEventListener('click', (e) => {
+  if (!e.target.classList.contains('del')) return
+  else {
+    e.target.closest('.li').remove()
+  }
+})
 
-const edit = document.querySelector('.edit')
-console.log(edit);
+//edit
+let editItem = null
+
+todoBox.addEventListener('click', (e) => {
+
+  if (!e.target.classList.contains('edit')) return
+
+  editItem = e.target.closest('.li')
+
+  const h3 = editItem.querySelector('h3')
+
+  input.value = h3.textContent
+
+  editItem.remove()
+})
