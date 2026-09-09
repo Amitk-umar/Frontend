@@ -42,7 +42,8 @@ main {
   -webkit-backdrop-filter: blur(18px);
 
 }
-#inpadd{
+
+#inpadd {
   display: flex;
   gap: 30px;
   align-items: center;
@@ -54,7 +55,7 @@ input {
   outline: none;
   border: 1px solid grey;
   border-radius: 5px;
-  width: min(100%, 350px);  
+  width: min(100%, 350px);
 
 
 }
@@ -114,6 +115,17 @@ h3 {
 .del {
   background-color: darkred;
   color: white;
+}
+
+.complete {
+  background-color: rgba(245, 245, 245, 0.901);
+ 
+  color: black;
+}
+.completed {
+ 
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
 /* Responsive design */

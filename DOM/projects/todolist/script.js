@@ -11,6 +11,7 @@ add.addEventListener('click', () => {
           <div>
             <button class="btn edit">Edit</button>
             <button class="btn del">Delete</button>
+            <button class="btn complete">Complete</button>
           </div>
         </div>`
 
@@ -40,4 +41,23 @@ todoBox.addEventListener('click', (e) => {
   input.value = h3.textContent
 
   editItem.remove()
+})
+
+//Mark as Completed
+todoBox.addEventListener('click', (e) => {
+  if (!e.target.classList.contains('complete')) return
+
+  const li = e.target.closest('.li')
+  const h3 = li.querySelector('h3')
+
+  h3.classList.toggle('completed')
+
+  if (h3.classList.contains('completed')) {
+    e.target.textContent = 'Completed'
+    e.target.style.backgroundColor = "green"
+    e.target.style.color = "white"
+
+  } else {
+    e.target.textContent = 'Complete'
+  }
 })
