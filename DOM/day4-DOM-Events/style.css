@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+form {
+    height: 30%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 30px;
+    gap: 10px;
+
+}
+
+form input,
+form button {
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 128, 128, 0.552);
+    outline: 1px solid teal;
+}
+
+form button {
+    background-color: teal;
+    color: white;
+}
+
+.users{
+    margin-top: 25px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.user-card{
+    height: 50%;
+    width: 24%;
+    border-radius: 10px;
+    border:1px solid white;
+    padding: 10px;
+
+}
+.image{
+    height: 70%;
+    width: 100%;
+margin-bottom: 10px;
+
+}
+img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+   
+}
+.text{
+    color: white;
+    
+}
+h3{
+    margin-bottom: 5px;
+}
