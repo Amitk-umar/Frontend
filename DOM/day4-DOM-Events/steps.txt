@@ -1,0 +1,27 @@
+Steps
+We create a form including 3 fields:
+Name
+Email
+Src.
+Select the form in JS and add an EventListener to it.
+We notice the form gets refreshed every time when we submit it.
+We fix this using event.preventDefault() for form submission.
+We take values from the form inputs and...
+Make a UI of my user card.
+
+Then we add each form data into our HTML:
+
+user.innerHTML += userCard
+
+Now we make an array of users.
+We add forEach for rendering.
+Now we make a function and use forEach for each user.
+Then we call that function in the global scope and whenever our event hits.
+We have a problem of overwriting the old UI/data.
+Now empty my HTML every time when we call UI().
+We learn about [Inline Events].
+We make a deleteFn, which takes one argument — the index.
+Finally, we write a logic using splice to delete data from userArray.
+Again, we call UI().
+
+That's it, champs! 😎

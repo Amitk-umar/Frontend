@@ -60,11 +60,16 @@
 
 
 
+
+//mini project -  adding multiplle profile cards using Array of json data with the help of eventlistener
+
+
 //Submit Event - form pe lagta hai and make sure submit button form ke ander ho
 const form = document.querySelector('form')
 const input1 = document.querySelector('#name')
 const input2 = document.querySelector('#email')
 const users = document.querySelector(".users")
+const image = document.querySelector('#imgurl')
 let userData = [
   {
     "id": 1,
@@ -105,7 +110,9 @@ let userData = [
 
 
 
-userData.forEach((elem)=>{
+const ui = () => {
+  users.innerHTML = "";
+  userData.forEach((elem, index) => {
     users.innerHTML += `<div class="user-card">
         <div class="image">
           <img
@@ -118,44 +125,63 @@ userData.forEach((elem)=>{
           <h3>Name - ${elem.name}</h3>
           <p>Email - ${elem.email}</p>
         </div>
+        <div class="modify">
+          <button onclick=editCard(${index}) id="edit">Edit</button>
+          <button onclick=deleteCard(${index}) id="del">Delete</button>
+        </div>
       </div>`
-})
-
-
+  });
+}
+ui();
 form.addEventListener("submit", (events) => {
+  events.preventDefault();
+
+  let name = input1.value;
+  let email = input2.value;
+  let imageUrl = image.value;
+
+  if (name.trim() === "" || email.trim() === "") return;
+
+  if (editIndex !== null) {
+
+    // Edit existing user
+    userData[editIndex].name = name;
+    userData[editIndex].email = email;
+    userData[editIndex].imageurl = imageUrl;
+
+    editIndex = null;
+
+  } else {
+
+    // Add new user
+    userData.push({
+      name: name,
+      email: email,
+      imageurl: imageUrl
+    });
+
+  }
+
+  ui();
+  form.reset();
+});
+
+//for editing card
+let editCard = (index) => {
+  input1.value = userData[index].name;
+  input2.value = userData[index].email;
+  image.value = userData[index].imageurl;
+
+  form.onsubmit = (events) => {
     events.preventDefault();
 
-    //two ways to print uname and email
+    userData[index].name = input1.value;
+    userData[index].email = input2.value;
+    userData[index].imageurl = image.value;
 
-    // console.log(uName.value);
-    // console.log(email.value);
-    // console.log(events.target[0].value);
-    // console.log(events.target[1].value);
-
-    let name = input1.value;
-    let email = input2.value;
-    if (name.trim() === "" || email.trim() === "") return;
-
-    users.innerHTML += `<div class="user-card">
-        <div class="image">
-          <img
-            src="https://images.unsplash.com/photo-1786594910954-707048f99aba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D"
-            alt="image"
-          />
-        </div>
-
-        <div class="text">
-          <h3>Name - ${name}</h3>
-          <p>Email - ${email}</p>
-        </div>
-      </div>`
-
-    //two ways to empty input fields
-
-    //1st way
-    // input1.value = "";
-    // input2.value = "";
-
-    //2nd way
+    ui();
     form.reset();
-})
+
+    form.onsubmit = null;
+  };
+};
