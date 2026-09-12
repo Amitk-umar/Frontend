@@ -65,55 +65,64 @@
 
 
 //Submit Event - form pe lagta hai and make sure submit button form ke ander ho
-const form = document.querySelector('form')
-const input1 = document.querySelector('#name')
-const input2 = document.querySelector('#email')
-const users = document.querySelector(".users")
-const image = document.querySelector('#imgurl')
+const form = document.querySelector('form');
+const input1 = document.querySelector('#name');
+const input2 = document.querySelector('#email');
+const users = document.querySelector('.users');
+const image = document.querySelector('#imgurl');
+
 let userData = [
   {
-    "id": 1,
-    "name": "Aarav Sharma",
-    "email": "aarav.sharma@example.com",
-    "imageurl": "https://i.pravatar.cc/150?img=12",
-    "dob": "1998-04-17"
+    id: 1,
+    name: 'Aarav Sharma',
+    email: 'aarav.sharma@example.com',
+    imageurl: 'https://i.pravatar.cc/150?img=12',
+    dob: '1998-04-17'
   },
   {
-    "id": 2,
-    "name": "Emma Wilson",
-    "email": "emma.wilson@example.com",
-    "imageurl": "https://i.pravatar.cc/150?img=47",
-    "dob": "2001-09-23"
+    id: 2,
+    name: 'Emma Wilson',
+    email: 'emma.wilson@example.com',
+    imageurl: 'https://i.pravatar.cc/150?img=47',
+    dob: '2001-09-23'
   },
   {
-    "id": 3,
-    "name": "Ryan Mitchell",
-    "email": "ryan.mitchell@example.com",
-    "imageurl": "https://i.pravatar.cc/150?img=33",
-    "dob": "1995-12-08"
+    id: 3,
+    name: 'Ryan Mitchell',
+    email: 'ryan.mitchell@example.com',
+    imageurl: 'https://i.pravatar.cc/150?img=33',
+    dob: '1995-12-08'
   },
   {
-    "id": 4,
-    "name": "Sophia Patel",
-    "email": "sophia.patel@example.com",
-    "imageurl": "https://i.pravatar.cc/150?img=44",
-    "dob": "2000-06-15"
+    id: 4,
+    name: 'Sophia Patel',
+    email: 'sophia.patel@example.com',
+    imageurl: 'https://i.pravatar.cc/150?img=44',
+    dob: '2000-06-15'
   },
   {
-    "id": 5,
-    "name": "Daniel Carter",
-    "email": "daniel.carter@example.com",
-    "imageurl": "https://i.pravatar.cc/150?img=68",
-    "dob": "1997-02-28"
+    id: 5,
+    name: 'Daniel Carter',
+    email: 'daniel.carter@example.com',
+    imageurl: 'https://i.pravatar.cc/150?img=68',
+    dob: '1997-02-28'
   }
-]
+];
 
+
+// Ye batayega ki kaunsa user edit ho raha hai
+let editIndex = null;
 
 
 const ui = () => {
-  users.innerHTML = "";
+
+  users.innerHTML = '';
+
   userData.forEach((elem, index) => {
-    users.innerHTML += `<div class="user-card">
+
+    users.innerHTML += `
+      <div class="user-card">
+
         <div class="image">
           <img
             src="${elem.imageurl}"
@@ -124,37 +133,51 @@ const ui = () => {
         <div class="text">
           <h3>Name - ${elem.name}</h3>
           <p>Email - ${elem.email}</p>
+          <p>DOB - ${elem.dob}</p>
         </div>
+
         <div class="modify">
-          <button onclick=editCard(${index}) id="edit">Edit</button>
-          <button onclick=deleteCard(${index}) id="del">Delete</button>
+          <button  id="edit" onclick="editCard(${index})">Edit</button>
+          <button id="del" onclick="deleteCard(${index})">Delete</button>
         </div>
-      </div>`
+
+      </div>
+    `;
   });
-}
+};
+
+
 ui();
-form.addEventListener("submit", (events) => {
+
+
+// Form submit
+form.addEventListener('submit', (events) => {
+
   events.preventDefault();
 
   let name = input1.value;
   let email = input2.value;
   let imageUrl = image.value;
 
-  if (name.trim() === "" || email.trim() === "") return;
+  if (name.trim() === '' || email.trim() === '') return;
 
+
+  // Agar editIndex null nahi hai
+  // iska matlab existing user edit ho raha hai
   if (editIndex !== null) {
 
-    // Edit existing user
     userData[editIndex].name = name;
     userData[editIndex].email = email;
     userData[editIndex].imageurl = imageUrl;
 
+    // Editing complete
     editIndex = null;
 
   } else {
 
-    // Add new user
+    // Naya user add hoga
     userData.push({
+      id: userData.length + 1,
       name: name,
       email: email,
       imageurl: imageUrl
@@ -164,24 +187,28 @@ form.addEventListener("submit", (events) => {
 
   ui();
   form.reset();
+
 });
 
-//for editing card
-let editCard = (index) => {
+
+// Edit button
+const editCard = (index) => {
+
+  // Sabse important line
+  editIndex = index;
+
   input1.value = userData[index].name;
   input2.value = userData[index].email;
   image.value = userData[index].imageurl;
 
-  form.onsubmit = (events) => {
-    events.preventDefault();
+};
 
-    userData[index].name = input1.value;
-    userData[index].email = input2.value;
-    userData[index].imageurl = image.value;
 
-    ui();
-    form.reset();
+// Delete button
+const deleteCard = (index) => {
 
-    form.onsubmit = null;
-  };
+  userData.splice(index, 1);
+
+  ui();
+
 };
