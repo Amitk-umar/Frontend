@@ -8,4 +8,31 @@ body,
 html {
     height: 100%;
     width: 100%;
+    background-color: rgb(29, 29, 29);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+main{
+    padding: 10px;
+    height: 60%;
+    width: 40%;
+    border: 2px solid white;
+    border-radius: 10px;
+    position: relative;
+}
+button{
+    padding: 9px 25px;
+    border-radius: 5px;
+    border: none;color: white;
+    background-color: darkmagenta;
+}
+.box{
+    height: 10%;
+    width: 10%;
+    background-color: orangered;
+    border-radius: 10px;    
+    position: absolute;
 }
