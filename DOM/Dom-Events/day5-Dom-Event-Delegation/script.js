@@ -14,6 +14,10 @@
 const main = document.querySelector('main')
 const box = document.querySelector('.box')
 const btn = document.querySelector('button')
+const timer = document.querySelector('#timer')
+
+let count = 0;
+let interval;
 
 btn.addEventListener('click', () => {
 
@@ -31,13 +35,29 @@ btn.addEventListener('click', () => {
     // offsetWidth → element ki total visible width batata hai.
     // offsetHeight → element ki total visible Height batata hai.
 
-    const maxX = main.clientWidth - box.offsetWidth;
-    const maxY = main.clientHeight - box.offsetHeight;
+    interval = setInterval(() => {
 
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
+        const maxX = main.clientWidth - box.offsetWidth;
+        const maxY = main.clientHeight - box.offsetHeight;
 
-    box.style.left =`${x}px`;
-    box.style.top =`${y}px`;
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        box.style.left = `${x}px`;
+        box.style.top = `${y}px`;
+
+        count += 1;
+
+        console.log(count);
+
+        timer.textContent = count;
+
+
+    }, 1000);
+
+    setTimeout(() => {
+        clearInterval(interval);
+    }, 10000);
+
 });
 

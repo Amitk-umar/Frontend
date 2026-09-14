@@ -22,6 +22,7 @@ main{
     border: 2px solid white;
     border-radius: 10px;
     position: relative;
+  
 }
 button{
     padding: 9px 25px;
@@ -35,4 +36,7 @@ button{
     background-color: orangered;
     border-radius: 10px;    
     position: absolute;
+}
+.time{
+    color: white;
 }
