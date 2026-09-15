@@ -12,14 +12,43 @@
 
 
 const main = document.querySelector('main')
-const box = document.querySelector('.box')
 const btn = document.querySelector('button')
 const timer = document.querySelector('#timer')
+const overlay = document.querySelector('#overlay')
+const box = document.createElement('div');
+const scored = document.querySelector('#score')
+box.classList.add('box');
 
 let count = 0;
 let interval;
+let score = 0;
+const randomColor = () => {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    return `rgb(${r},${g},${b})`
+}
+
+const randomBox = () => {
+    box.style.backgroundColor = randomColor()
+
+    main.append(box);
+
+
+    const maxX = main.clientWidth - box.offsetWidth;
+    const maxY = main.clientHeight - box.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    box.style.left = `${x}px`;
+    box.style.top = `${y}px`;
+}
+
 
 btn.addEventListener('click', () => {
+
+    randomBox();
 
     // const x = Math.floor(Math.random() * 100) + 1;
     // const y = Math.floor(Math.random() * 100) + 1;
@@ -36,28 +65,23 @@ btn.addEventListener('click', () => {
     // offsetHeight → element ki total visible Height batata hai.
 
     interval = setInterval(() => {
-
-        const maxX = main.clientWidth - box.offsetWidth;
-        const maxY = main.clientHeight - box.offsetHeight;
-
-        const x = Math.random() * maxX;
-        const y = Math.random() * maxY;
-
-        box.style.left = `${x}px`;
-        box.style.top = `${y}px`;
-
+        randomBox();
         count += 1;
-
-        console.log(count);
-
         timer.textContent = count;
-
 
     }, 1000);
 
     setTimeout(() => {
         clearInterval(interval);
+        overlay.style.display = 'flex';
     }, 10000);
 
 });
+
+box.addEventListener('click', () => {
+    score += 1;
+    scored.textContent = score;
+})
+
+
 
