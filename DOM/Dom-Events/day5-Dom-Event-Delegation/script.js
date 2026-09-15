@@ -16,7 +16,9 @@ const btn = document.querySelector('button')
 const timer = document.querySelector('#timer')
 const overlay = document.querySelector('#overlay')
 const box = document.createElement('div');
+
 const scored = document.querySelector('#score')
+
 box.classList.add('box');
 
 let count = 0;
@@ -47,7 +49,8 @@ const randomBox = () => {
 
 
 btn.addEventListener('click', () => {
-
+        btn.style.display = 'none';
+    
     randomBox();
 
     // const x = Math.floor(Math.random() * 100) + 1;
@@ -74,14 +77,37 @@ btn.addEventListener('click', () => {
     setTimeout(() => {
         clearInterval(interval);
         overlay.style.display = 'flex';
+
     }, 10000);
+
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        count = 0;
+        score = 0;
+        timer.textContent = count;
+        scored.textContent = score;
+
+    }, 13000);
+
 
 });
 
+
+let canClick = true;
 box.addEventListener('click', () => {
+
+    if (!canClick) return;
+    canClick = flase;
     score += 1;
+    // console.log(score);
+    // console.log(scored)
     scored.textContent = score;
+    setTimeout(() => {
+        canClick = true;
+    }, 1000);
 })
+
+
 
 
 
