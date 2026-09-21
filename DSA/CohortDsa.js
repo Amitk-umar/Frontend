@@ -118,4 +118,101 @@ const prompt = require('prompt-sync')()
 
 
 
-//problem 9 : 
+//problem 9 : check if a year is leap year or not?
+// function isLeapYear(year) {
+//     if (year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) {
+//         return "Leap Year";
+//     }
+
+//     return "Not a Leap Year";
+// }
+
+// module.exports = { isLeapYear };
+
+
+
+
+//problem 10 : calculate final payable amount - brute force approach
+// function calculateFinalAmount(amount) {
+//     // Write your logic here
+//     let payableAmount;
+
+//     if (amount >= 0 && amount <= 5000) {
+//         return amount;
+//     }
+//     else if (amount >= 5001 && amount <= 7000) {
+//         payableAmount = amount - (amount * (5 / 100));
+//         return payableAmount;
+//     }
+//     else if (amount >= 7001 && amount <= 9000) {
+//         payableAmount = amount - (amount * (10 / 100));
+//         return payableAmount;
+//     }
+//     else if (amount > 9000) {
+//         payableAmount = amount - (amount * (20 / 100));
+//         return payableAmount;
+//     }
+//     else {
+//         return 'Enter a valid amount!';
+//     }
+// }
+
+// module.exports = { calculateFinalAmount };
+
+
+
+
+//problem 10 : calculate final payable amount - optimal approach
+// function calculateFinalAmount(amount) {
+//     let discount = 0;
+
+//     if (amount < 0) {
+//         return "Enter a valid amount!";
+//     }
+
+//     if (amount > 9000) {
+//         discount = 20;
+//     } else if (amount > 7000) {
+//         discount = 10;
+//     } else if (amount > 5000) {
+//         discount = 5;
+//     }
+
+//     return amount - (amount * discount / 100);
+// }
+
+// module.exports = { calculateFinalAmount };
+
+
+
+
+
+
+//problem 11:  Calculate Electricity Bill Based on Units consumed
+// function calculateElectricityBill(unit) {
+//     if (unit < 0) return "enter units1!";
+
+//     let bill = 0;
+
+//     if (unit <= 100) {
+//         bill = unit * 4.2;
+//     } 
+//     else if (unit <= 200) {
+//         bill = (100 * 4.2) + ((unit - 100) * 6);
+//     } 
+//     else if (unit <= 400) {
+//         bill = (100 * 4.2) + (100 * 6) + ((unit - 200) * 8);
+//     } 
+//     else {
+//         bill = (100 * 4.2) +
+//                (100 * 6) +
+//                (200 * 8) +
+//                ((unit - 400) * 13);
+//     }
+
+//     return bill.toFixed(1);
+// }
+
+// module.exports = { calculateElectricityBill };
+
+
