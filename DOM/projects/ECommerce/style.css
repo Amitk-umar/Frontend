@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+    padding: 15px;
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+nav {
+    color: white;
+    height: 10%;
+    width: 100%;
+    background-color: rgb(9, 58, 88);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+nav button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.products {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    padding: 8px;
+    height: 45%;
+    width: 20%;
+    border: 2px solid rgba(128, 128, 128, 0.652);
+    border-radius: 10px;
+    background-color: white;
+    box-shadow:
+        0px 2px 4px rgba(0, 0, 0, 0.04),
+        0px 8px 16px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.img {
+    height: 60%;
+    width: 100%;
+}
+
+.img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#edit {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: darkgoldenrod;
+    color: whitesmoke;
+
+}
+
+#delete {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: darkred;
+    color: whitesmoke;
+}
+
+.form {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.719);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+}
+
+form {
+    width: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid grey;
+}
+
+form button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: 1px solid grey;
+    cursor: pointer;
+}
+
+#cross {
+    height: 48px;
+    width: 48px;
+    background-color: red;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    left: 73%;
+    top: 27%;
+    cursor: pointer;
+}
