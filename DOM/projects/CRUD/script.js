@@ -4,7 +4,8 @@ const closedBtn = document.querySelector('#cross')
 const form = document.querySelector('form')
 
 
-const productArr = [];
+const productArr = JSON.parse(localStorage.getItem("products")) || [];
+
 const products = document.querySelector('.products')
 
 let updateIndex = null;
@@ -13,7 +14,7 @@ let ui = () => {
     products.innerHTML = "";
 
 
-    productArr.forEach((elem,index) => {
+    productArr.forEach((elem, index) => {
         products.innerHTML += ` <div class="product-card">
           <div class="img">
             <img
@@ -34,7 +35,7 @@ let ui = () => {
     });
 }
 
-
+ui();
 
 createBtn.addEventListener('click', () => {
     formDiv.style.display = 'flex';
@@ -63,9 +64,13 @@ form.addEventListener('submit', (e) => {
     if (updateIndex != null) {
         productArr[updateIndex] = obj;
         updateIndex = null
+        localStorage.setItem("products", JSON.stringify(productArr))
+
+
     } else {
         productArr.push(obj)
-        }
+        localStorage.setItem("products", JSON.stringify(productArr))
+    }
 
     if (productName.trim() === "" || description.trim() === "" || price.trim() === "" || Image === "") {
         alert("required all field!")
@@ -91,7 +96,16 @@ const updateProduct = (name) => {
     form[2].value = product.price;
     form[3].value = product.Image;
 }
-const deleteCard = (index) =>{
-productArr.splice(index,1);
-ui();
+const deleteCard = (index) => {
+    productArr.splice(index, 1);
+    localStorage.setItem("products", JSON.stringify(productArr))
+
+    ui();
 }
+
+
+
+// localStorage.setItem("name","Ravi sharma")
+// let localName = localStorage.getItem("name")
+// console.log(localName);
+
