@@ -196,13 +196,13 @@ var prompt = require('prompt-sync')();
 
 //     if (unit <= 100) {
 //         bill = unit * 4.2;
-//     } 
+//     }
 //     else if (unit <= 200) {
 //         bill = (100 * 4.2) + ((unit - 100) * 6);
-//     } 
+//     }
 //     else if (unit <= 400) {
 //         bill = (100 * 4.2) + (100 * 6) + ((unit - 200) * 8);
-//     } 
+//     }
 //     else {
 //         bill = (100 * 4.2) +
 //                (100 * 6) +
@@ -216,7 +216,7 @@ var prompt = require('prompt-sync')();
 // module.exports = { calculateElectricityBill };
 
 
-//switch conditional statement
+//problem 12. switch conditional statement
 // let day = Number(prompt("Enter day : "))
 // switch (day) {
 //     case 1: console.log("it's Monday");
@@ -237,6 +237,69 @@ var prompt = require('prompt-sync')();
 // }
 
 
+//problem 13. find the greatest number among three Numbers
+// function findGreatest(a, b, c) {
+//     // Write your logic here
+//     let greatest = a;
+//     if (b > greatest) {
+//         greatest = b;
+//     }
+//     if (c > greatest) {
+//         greatest = c;
+//     }
+//     return greatest;
+// }
+
+// module.exports = { findGreatest };
 
 
+
+
+
+
+//problem 14. determine movie status based on rating star
+// class Solution {
+//     get_movie_status(ratingStr) {
+//         // Write your code here
+//         const rating = Number(ratingStr);
+//         if (rating >= 0.0 && rating <= 2.0) return 'Flop';
+//         else if (rating >= 2.1 && rating <= 3.4) return 'Semi-hit';
+//         else if (rating >= 3.5 && rating <= 4.5) return 'Hit';
+//         else if(rating >= 4.6 && rating <= 5.0) return 'Super -Hit';
+//     }
+// }
+
+// module.exports = Solution;
+
+
+
+
+
+
+
+//problem 15. check if a character is vowel or consonent
+// function checkChar(ch) {
+//   //write your code here
+//   if (
+//     ch === 'a' || ch === 'e' || ch === 'i' ||
+//     ch === 'o' || ch === 'u' ||
+//     ch === 'A' || ch === 'E' || ch === 'I' ||
+//     ch === 'O' || ch === 'U'
+//   ) {
+//     return "Vowel";
+//   }
+
+//   // Check whether it is an English alphabet
+//   if (
+//     (ch >= 'a' && ch <= 'z') ||
+//     (ch >= 'A' && ch <= 'Z')
+//   ) {
+//     return "Consonant";
+//   }
+
+//   return "Invalid input";
+
+// }
+
+// module.exports = { checkChar };
 
