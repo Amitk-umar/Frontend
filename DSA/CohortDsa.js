@@ -1,4 +1,4 @@
-const prompt = require('prompt-sync')()
+var prompt = require('prompt-sync')();
 
 
 //problem 1 : add two numbers
@@ -214,5 +214,29 @@ const prompt = require('prompt-sync')()
 // }
 
 // module.exports = { calculateElectricityBill };
+
+
+//switch conditional statement
+// let day = Number(prompt("Enter day : "))
+// switch (day) {
+//     case 1: console.log("it's Monday");
+//         break;
+//     case 2: console.log("it's Tuesday");
+//         break;
+//     case 3: console.log("it's Wednesday");
+//         break;
+//     case 4: console.log("it's Thursday");
+//         break;
+//     case 5: console.log("it's friday");
+//         break;
+//     case 6: console.log("it's saturday");
+//         break;
+//     case 7: console.log("it's sunday");
+//         break;
+//     default: console.log("Enter a valid day!");
+// }
+
+
+
 
 
