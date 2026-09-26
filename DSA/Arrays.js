@@ -30,8 +30,7 @@ function sum(...args) {
         total = args[i] + total;
         
     }
-    return total
-
+    return total;
 }
 
 //For the purpose of user debugging.
