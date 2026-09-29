@@ -96,4 +96,14 @@ const prompt = require('prompt-sync')();
 
 
 
+// //Question : take positive integer and print number is odd or even.
+// let num = Number(prompt("Enter a Number : "));
+// (num % 2 === 0) ? console.log("Even") : console.log("Odd");
 
+
+
+
+// if nested ternary operator
+let marks = Number(prompt("Enter marks :"));
+let result = marks >= 80 ? "A" : marks >= 60 ? "B" : marks >= 40 ? "C" : "Fail";
+console.log(result);
