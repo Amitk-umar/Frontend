@@ -1,5 +1,6 @@
 import React from 'react';
 import About from './About.jsx'
+import UserCard from './UserCard.jsx';
 let App = () => {
   // let ui = React.createElement("div",{}, [
   //   React.createElement("h1",{key:"h1"},"I am h1"),
@@ -7,6 +8,16 @@ let App = () => {
   //   React.createElement("h3",{key:"h3"},"I am h3")
   // ])
   // return ui;
+
+   const userData = {
+        age: 20,
+        address: {
+            city: "Ludhiana",
+            state: "punjab",
+            pincode: 141007
+        }
+    }
+
   return <main>
     <div>
       <h1>i am h1</h1>
@@ -15,7 +26,8 @@ let App = () => {
     </div>
     {/* <About /> */}
     {/* {About("hello raghav")} */}
-    <About width= "300" name="Raghav sharma" age = {25}/>
+    <About width="300" name="Raghav sharma" age={25} />
+    <UserCard {...userData} />
   </main>
 }
 export default App;
