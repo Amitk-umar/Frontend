@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 // import Counter from "./Counter";
 
 const App = () => {
-  const products = [
+  const [productsData, setProductData] = useState([
     {
       id: 1,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -274,9 +274,12 @@ const App = () => {
         count: 145,
       },
     },
-  ];
+  ]);
 
-
+  const deleteProducts = (id) => {
+    let products = productsData.filter((elem) => elem.id !== id)
+    setProductData(products)
+  }
 
   return (
     <div>
@@ -293,8 +296,8 @@ const App = () => {
 
       <div className="flex flex-wrap gap-3">
         {
-          products.map((elem) => {
-            return <ProductCard  key={elem.id} product={elem} />
+          productsData.map((elem) => {
+            return <ProductCard key={elem.id} product={elem} del={deleteProducts} />
           })
         }
       </div>
