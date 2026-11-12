@@ -1,18 +1,40 @@
-import { React } from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-const Form = ({ setUsers, setToggle }) => {
+const Form = ({ setUsers, setToggle, editUser, setEditUser }) => {
 
   let { register, handleSubmit, reset, formState: { errors } } = useForm(
     {
-      mode: "onChange"
+      mode: "onChange",
     }
   );
+
+  useEffect(() => {
+    if (editUser) {
+      reset(editUser)
+    }
+  }, [editUser, reset])
+
+
+
+  
   let formSubmit = (data) => {
-    setUsers((prev) => [...prev, data])
-    console.log("user data", data)
+
+    if (editUser) {
+      setUsers((prev) =>
+        prev.map((user) =>
+          user.email === editUser.email ? data : user
+        )
+      );
+    } else {
+      setUsers((prev) => [...prev, data]);
+    }
+
     reset();
-    setToggle((prev) => !prev)
-  }
+    setEditUser(null);
+    setToggle(true);
+  };
+
+
 
   return (
     <div className="flex flex-col items-center gap-4">
@@ -22,7 +44,8 @@ const Form = ({ setUsers, setToggle }) => {
           required: "name is required!",
           pattern: {
             value: /^[A-Za-z]+(?:\s[A-Za-z]+)*$/,
-            message: "Enter a valid name without extra spaces"
+            message: "Enter a valid name without extra spaces",
+
           }
         })}
           className=" outline-0 rounded border border-gray-400 p-2" type="text" placeholder="Name" />

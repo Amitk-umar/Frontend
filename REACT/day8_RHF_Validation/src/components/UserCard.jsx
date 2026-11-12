@@ -1,5 +1,12 @@
 import React from 'react';
-const UserCard = ({user}) => {
+const UserCard = ({ user, setToggle, setEditUser, setUsers }) => {
+    
+    const handleDelete = () => {
+        setUsers((prev) =>
+            prev.filter((elem) => elem.email !== user.email)
+        );
+    };
+    
     return (
 
         <div className=" p-2 border border-black rounded flex flex-col gap-2">
@@ -9,11 +16,15 @@ const UserCard = ({user}) => {
             <div className="flex flex-col gap-1">
                 <h1>{user.name}</h1>
                 <p className="text-sm">{user.email}</p>
-                <p className="text-sm">{user.mobile}</p>
+                <p className="text-sm">{user.contact}</p>
             </div>
             <div className="flex justify-between w-full">
-                <button className=" py-2 px-3 bg-amber-600 text-white rounded">update</button>
-                <button className=" py-2 px-3 bg-red-600 text-white rounded">delete</button>
+                <button onClick={() => {
+                    setEditUser(user);
+                    setToggle(false);
+                }
+                } className=" py-2 px-3 bg-amber-600 text-white rounded">update</button>
+                <button onClick={handleDelete} className=" py-2 px-3 bg-red-600 text-white rounded">delete</button>
             </div>
         </div>
     )
