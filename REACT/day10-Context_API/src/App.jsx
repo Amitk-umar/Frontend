@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import ProductCard from './components/ProductCard';
 import Navbar from './components/Navbar';
 import Card from './components/Card';
+import { WebShop } from './context/MyWebsite';
 
 const App = () => {
+  let { isCartOpen } = useContext(WebShop)
 
 
-  const [isCartOpen, setIsCartOpen] = useState(false)
-  const [cartItem, setCartItem] = useState([])
+
 
   let products = [
     {
@@ -253,12 +254,9 @@ const App = () => {
   ]
 
 
-
-
-
   return (
     <div className="h-screen p-4 flex flex-col gap-4" >
-      <Navbar setIsCartOpen={setIsCartOpen} />
+      <Navbar />
 
 
 
@@ -268,7 +266,7 @@ const App = () => {
       </div>) : (<div className="grid grid-cols-1 gap-5 p-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
         {
           products.map((val) => {
-            return <ProductCard setCartItem={setCartItem} key={val.id} products={val} />
+            return <ProductCard key={val.id} products={val} />
           })
         }
       </div>)}

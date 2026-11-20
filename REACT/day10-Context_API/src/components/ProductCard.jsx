@@ -1,8 +1,59 @@
 
-import React from "react";
-import { ShoppingCart, Star, Eye } from "lucide-react";
+import React, { useContext } from "react";
+import { ShoppingCart, Star, Eye, Plus, Minus } from "lucide-react";
+import { WebShop } from "../context/MyWebsite";
 
-const ProductCard = ({ products }) => {
+const ProductCard = ({ products, }) => {
+
+    let { cartItem, setCartItem } = useContext(WebShop)
+
+
+    // Check whether product already exists in cart
+    const cartProduct = cartItem.find(
+        (item) => item.id === products.id
+    );
+
+    // Get current quantity
+    const quantity = cartProduct?.quantity || 0;
+
+
+    // Add product to cart
+    const handleAddToCart = () => {
+        setCartItem((prev) => [
+            ...prev,
+            { ...products, quantity: 1 }
+        ]);
+    };
+
+
+    // Increase quantity
+    const handleIncrease = () => {
+        setCartItem((prev) =>
+            prev.map((item) =>
+                item.id === products.id
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
+            )
+        );
+    };
+
+
+    // Decrease quantity
+    const handleDecrease = () => {
+        setCartItem((prev) =>
+            prev
+                .map((item) =>
+                    item.id === products.id
+                        ? { ...item, quantity: item.quantity - 1 }
+                        : item
+                )
+                .filter((item) => item.quantity > 0)
+        );
+    };
+
+
+
+
     return (
         <div className="group w-full max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
@@ -63,12 +114,41 @@ const ProductCard = ({ products }) => {
                         </h3>
                     </div>
 
-                    <button
-                        className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-3 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 active:scale-95 min-[400px]:w-auto sm:px-4"
-                    >
-                        <ShoppingCart size={18} />
-                        Add to Cart
-                    </button>
+                    {quantity === 0 ? (
+
+                        <button
+                            onClick={handleAddToCart}
+                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-3 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 active:scale-95 min-[400px]:w-auto sm:px-4"
+                        >
+                            <ShoppingCart size={18} />
+                            Add to Cart
+                        </button>
+
+                    ) : (
+
+                        <div className="flex items-center justify-between gap-4 rounded-xl border border-indigo-200 bg-indigo-50 p-2">
+
+                            <button
+                                onClick={handleDecrease}
+                                className="rounded-lg bg-white p-2 text-indigo-600 shadow-sm hover:bg-indigo-100"
+                            >
+                                <Minus size={18} />
+                            </button>
+
+                            <span className="font-bold text-indigo-700">
+                                {quantity}
+                            </span>
+
+                            <button
+                                onClick={handleIncrease}
+                                className="rounded-lg bg-white p-2 text-indigo-600 shadow-sm hover:bg-indigo-100"
+                            >
+                                <Plus size={18} />
+                            </button>
+
+                        </div>
+
+                    )}
 
                 </div>
             </div>
