@@ -25,7 +25,6 @@ const App = () => {
   let products = async () => {
     let res = await axios.get('https://fakestoreapi.com/products')
     setApiData(res)
-   
   }
 
 
